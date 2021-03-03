@@ -320,18 +320,16 @@ const APIProvider = ({ children }) => {
       });
   };
 
-  const getPet = (authState, petInfo) => {
+  const getPet = (authState) => {
     const headers = getAuthHeader(authState);
 
     return axios
-      .get(`${process.env.REACT_APP_API_URI}/pets/${userInfo.sub}`, petInfo, {
-        headers,
-      })
+      .get(`${process.env.REACT_APP_API_URI}/pets/${userInfo.sub}`)
       .then(res => {
         console.log(res);
       })
       .catch(err => {
-        setIsError(true);
+        console.log(err);
       });
   };
 

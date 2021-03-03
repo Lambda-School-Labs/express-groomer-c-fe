@@ -8,12 +8,16 @@ import './pet.scss';
 import { UsersContext } from '../../../state/contexts/UsersContext';
 import { CustomersContext } from '../../../state/contexts/CustomersContext';
 import { FormContext } from '../../../state/contexts/FormContext';
+import { APIContext } from '../../../state/contexts/APIContext';
+import { PetsContext } from '../../../state/contexts/PetsContext';
 
 const RenderPetProfile = () => {
   // context state
   const { userInfo } = useContext(UsersContext);
   const { custInfo } = useContext(CustomersContext);
   const { showForm } = useContext(FormContext);
+  const { getPet } = useContext(APIContext);
+  const [ pets ] = useContext(PetsContext)
 
   return (
     <div>
