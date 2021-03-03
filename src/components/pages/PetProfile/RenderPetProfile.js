@@ -30,17 +30,17 @@ const RenderPetProfile = () => {
           <Avatar size={74} icon={<UserOutlined />} />
         </div>
 
-        <div className="customer-header">
+        <div className="pet-header">
           <p className="heading">
             {custInfo.given_name
               ? `${custInfo.given_name} ${custInfo.family_name}`
               : userInfo.given_name}{' '}
           </p>
         </div>
-        <div className="customer-info-box">
+        <div className="pet-info-box">
           <div className="panel">
             <Divider style={{ borderColor: 'lightblue' }}>
-              Personal Info
+              Pet Info
             </Divider>
             <div className="panel-info">
               <p>
@@ -65,7 +65,7 @@ const RenderPetProfile = () => {
             </div>
           </div>
           <div className="panel">
-            <Divider style={{ borderColor: 'lightblue' }}>Address</Divider>
+            <Divider style={{ borderColor: 'lightblue' }}>Clinical Info</Divider>
             <div className="panel-info">
               <p>
                 Address:{' '}
