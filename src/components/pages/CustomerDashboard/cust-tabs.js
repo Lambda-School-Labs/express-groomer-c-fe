@@ -4,6 +4,7 @@ import Overview from './overview';
 import CustomerProfilePage from '../CustomerProfile/CustProContainer';
 import { ProfileFormPO } from '../ProfileFormPO';
 import { PetForm } from '../PetForm';
+import { RenderPetProfile } from '../PetProfile';
 // context imports
 import { FormContext } from '../../../state/contexts/FormContext';
 import FileUpload from '../../common/FileUpload';
@@ -49,6 +50,7 @@ const CustTab = () => {
         >
           <Overview />
         </TabPane>
+
         <TabPane
           tab={
             <span>
@@ -73,6 +75,7 @@ const CustTab = () => {
           </Row>
           <CustomerProfilePage />
         </TabPane>
+
         <TabPane
           tab={
             <span>
@@ -81,37 +84,41 @@ const CustTab = () => {
           }
           key="2"
         >
-          {/* Pet form is placed inside a row component for easy center
-             alignment*/}
-          <Row justify={'center'}>
-            <PetForm />
-          </Row>
-          {/* These 2 components will eventually live on pet display
-           component*/}
-          <Row justify={'center'}>
-            <h2 style={{ marginTop: '10px' }}>Upload Pet Image</h2>
-          </Row>
-          <Row justify={'center'}>
-            <FileUpload
-              /* logic will need to be added to get a pet from API for this
-               to be functional */
-              uploadUrl={`pets/image-upload/${pet && pet.id}?customer_id=${
-                custInfo.user_id
-              }`}
-            />
-          </Row>
-          <Row justify={'center'}>
-            <h2 style={{ marginTop: '10px' }}>Upload Pet Vaccination Image</h2>
-          </Row>
-          <Row justify={'center'}>
-            <FileUpload
-              /* logic will need to be added to get a pet from API for this
-               to be functional */
-              uploadUrl={`pets/vaccination-upload/${pet &&
-                pet.id}?customer_id=${custInfo.user_id}`}
-            />
-          </Row>
+          <div>
+          {/* Pet form is placed inside a row component for easy center alignment*/}
+              <Row justify={'center'}>
+                <PetForm />
+              </Row>
+
+          {/* These 2 components will eventually live on pet display component*/}
+              <Row justify={'center'}>
+                <h2 style={{ marginTop: '10px' }}>Upload Pet Image</h2>
+              </Row>
+              <Row justify={'center'}>
+                <FileUpload
+                  /* logic will need to be added to get a pet from API for this
+                  to be functional */
+                  uploadUrl={`pets/image-upload/${pet && pet.id}?customer_id=${
+                    custInfo.user_id
+                  }`}
+                />
+              </Row>
+
+              <Row justify={'center'}>
+                <h2 style={{ marginTop: '10px' }}>Upload Pet Vaccination Image</h2>
+              </Row>
+              <Row justify={'center'}>
+                <FileUpload
+                  /* logic will need to be added to get a pet from API for this
+                  to be functional */
+                  uploadUrl={`pets/vaccination-upload/${pet &&
+                    pet.id}?customer_id=${custInfo.user_id}`}
+                />
+              </Row>
+              <RenderPetProfile />
+          </div>
         </TabPane>
+
         <TabPane
           tab={
             <span>
@@ -122,6 +129,7 @@ const CustTab = () => {
         >
           Appointments
         </TabPane>
+        
         <TabPane
           tab={
             <span>
