@@ -4,7 +4,7 @@ import GroomersProvider from './GroomersContext';
 import UsersContext from './UsersContext';
 import APIContext from './APIContext';
 import FormContext from './FormContext';
-import PetsContext, { PetsProvider } from './PetsContext';
+import PetsProvider from './PetsContext';
 
 export const RootProvider = ({ children }) => {
   return (
