@@ -156,21 +156,21 @@ const APIProvider = ({ children }) => {
     const headers = getAuthHeader(authState);
 
     return axios
-      // .get(`${process.env.REACT_APP_API_URI}/customers/${userInfo.sub}`, {
-      //   headers,
-      // })
-      // .then(res => {
-      //   if (res.data) {
-      //     setCustInfo(res.data);
-      //     setIsRegistered(true);
-      //   }
-      // })
       .get(`${process.env.REACT_APP_API_URI}/customers/${userInfo.sub}`, {
         headers,
       })
       .then(res => {
-        console.log('getCustomerByID: ', res)
+        if (res.data) {
+          setCustInfo(res.data);
+          setIsRegistered(true);
+        }
       })
+      // .get(`${process.env.REACT_APP_API_URI}/customers/${userInfo.sub}`, {
+      //   headers,
+      // })
+      // .then(res => {
+      //   console.log('getCustomerByID: ', res)
+      // })
       .catch(err => {
         console.log(err);
       });
