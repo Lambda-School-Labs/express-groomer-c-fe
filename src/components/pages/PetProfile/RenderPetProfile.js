@@ -19,6 +19,9 @@ const RenderPetProfile = () => {
   const { getPet } = useContext(APIContext);
   const [ pets ] = useContext(PetsContext)
 
+  // console.log('getting pet')
+  // getPet()
+
   return (
     <div>
       {showForm ? <ProfileFormPO /> : null}
