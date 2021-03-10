@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import { ProfileFormPO } from '../ProfileFormPO';
 import { Layout, Avatar, Divider } from 'antd';
 import { UserOutlined } from '@ant-design/icons';
+import { useOktaAuth } from '@okta/okta-react'; // need this for getPet
 import 'antd/dist/antd.css';
 import './pet.scss';
 // context imports
@@ -18,9 +19,10 @@ const RenderPetProfile = () => {
   const { showForm } = useContext(FormContext);
   const { getPet } = useContext(APIContext);
   const [ pets ] = useContext(PetsContext)
+  const { authState } = useOktaAuth(); // need this for getPet
 
-  // console.log('getting pet')
-  // getPet()
+  console.log('getting pet')
+  getPet(authState)
 
   return (
     <div>

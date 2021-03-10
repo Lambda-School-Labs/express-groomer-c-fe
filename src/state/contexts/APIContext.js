@@ -324,6 +324,7 @@ const APIProvider = ({ children }) => {
 
   const getPet = (authState) => {
     const headers = getAuthHeader(authState);
+    console.log('getPet: ', userInfo.sub, headers) // confirming data
 
     return axios
       .get(`${process.env.REACT_APP_API_URI}/pets/${userInfo.sub}`, headers)
