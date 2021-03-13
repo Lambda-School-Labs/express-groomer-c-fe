@@ -91,7 +91,6 @@ const Searching = () => {
       <div className="search-bar-filter">
         <Cascader
           options={options}
-          onSearch={miles}
           value={searchMiles}
           onChange={milesChange}
           placeholder="Filter by miles"
