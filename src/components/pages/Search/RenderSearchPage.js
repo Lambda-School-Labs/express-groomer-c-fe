@@ -52,11 +52,13 @@ const Searching = () => {
   }, []);
 
   const handleChange = event => {
+    console.log('getting the event:', event);
     setSearchValue(event.target.value);
   };
 
-  const milesChange = event => {
-    setSearchMiles(event.target.value);
+  const milesChange = value => {
+    console.log('getting the value:', value);
+    setSearchMiles(value[0]);
   };
 
   const onSearch = () => {
@@ -65,6 +67,13 @@ const Searching = () => {
     );
     setFilteredGroomers(result);
   };
+
+  // const milesSearch = () => {
+  //   const result = allGroomers.filter(groomer =>
+  //     groomer.city.toLowerCase().includes(searchValue.toLowerCase())
+  //   );
+  //   setFilteredGroomers(result);
+  // };
 
   return (
     <div className="search-page-container">
@@ -82,6 +91,7 @@ const Searching = () => {
       <div className="search-bar-filter">
         <Cascader
           options={options}
+          onSearch={miles}
           value={searchMiles}
           onChange={milesChange}
           placeholder="Filter by miles"
