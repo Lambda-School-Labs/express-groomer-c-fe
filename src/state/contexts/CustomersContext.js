@@ -10,6 +10,7 @@ export const CustomersContext = createContext({});
 const CustomersProvider = ({ children }) => {
   const history = useHistory();
   const [custInfo, setCustInfo] = useState({});
+  // const [pets, setPets] = useState({});
   const [updated, setUpdated] = useState(false);
   const { userInfo } = useContext(UsersContext);
   const { deleteProfile } = useContext(APIContext);
@@ -25,6 +26,8 @@ const CustomersProvider = ({ children }) => {
       value={{
         custInfo,
         setCustInfo,
+        // pets,
+        // setPets,
         updated,
         setUpdated,
         deleteCustomerProfile,

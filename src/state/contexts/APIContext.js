@@ -8,6 +8,7 @@ import { UsersContext } from './UsersContext';
 import { GroomersContext } from './GroomersContext';
 import { CustomersContext } from './CustomersContext';
 import { FormContext } from './FormContext';
+import { PetsContext } from './PetsContext'; // adding pet data
 
 export const APIContext = createContext({});
 
@@ -15,6 +16,7 @@ const APIProvider = ({ children }) => {
   const history = useHistory();
   const { userInfo, setIsRegistered } = useContext(UsersContext);
   const { setCustInfo } = useContext(CustomersContext);
+  const { setPets } = useContext(PetsContext); // adding pet data
 
   const {
     setGroomerInfo,
@@ -327,9 +329,13 @@ const APIProvider = ({ children }) => {
     console.log('getPet: ', userInfo.sub, headers) // confirming data
 
     return axios
-      .get(`${process.env.REACT_APP_API_URI}/pets/${userInfo.sub}`, headers)
+      .get(`${process.env.REACT_APP_API_URI}/pets?customer_id=${userInfo.sub}`, headers)
       .then(res => {
-        console.log(res);
+        // console.log('getPet res: ', res);
+        // setPets(res.data); // adding pet data
+        let tempPets = res.data
+        console.log('tempPets: ', tempPets)
+        setPets(tempPets)
       })
       .catch(err => {
         console.log(err);

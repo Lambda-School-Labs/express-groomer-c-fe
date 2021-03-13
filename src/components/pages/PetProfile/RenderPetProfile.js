@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { ProfileFormPO } from '../ProfileFormPO';
 import { Layout, Avatar, Divider } from 'antd';
 import { UserOutlined } from '@ant-design/icons';
@@ -18,11 +18,17 @@ const RenderPetProfile = () => {
   const { custInfo } = useContext(CustomersContext);
   const { showForm } = useContext(FormContext);
   const { getPet } = useContext(APIContext);
-  const [ pets ] = useContext(PetsContext)
+  const { pets, setPets } = useContext(PetsContext)
   const { authState } = useOktaAuth(); // need this for getPet
 
-  console.log('getting pet')
-  getPet(authState)
+  useEffect(() => {
+    getPet(authState)
+  }, [])
+
+  // console.log('getting pet')
+  // getPet(authState)
+
+  console.log('Pets: ', pets)
 
   return (
     <div>
@@ -53,20 +59,21 @@ const RenderPetProfile = () => {
             </Divider>
             <div className="panel-info">
               <p>
-                First Name:{' '}
+                Pet Name:{' '}
                 {custInfo.given_name
                   ? custInfo.given_name
                   : userInfo.given_name}
               </p>
               <p>
-                Last Name:{' '}
+                Breed:{' '}
                 {custInfo.family_name
                   ? custInfo.family_name
                   : userInfo.family_name}
               </p>
-              <p>Email: {userInfo.email}</p>
+              <p>Gender:</p>
+              <p>Color: {userInfo.email}</p>
               <p>
-                Phone Number:{' '}
+                Temperament:{' '}
                 {custInfo.phone_number
                   ? custInfo.phone_number
                   : 'Update your profile'}
@@ -76,7 +83,10 @@ const RenderPetProfile = () => {
           <div className="panel">
             <Divider style={{ borderColor: 'lightblue' }}>Clinical Info</Divider>
             <div className="panel-info">
-              <p>
+              <p>Spayed / Neutered:</p>
+              <p>Current on vaccines:</p>
+              <p>Special requests for groomer:</p>
+              {/* <p>
                 Address:{' '}
                 {custInfo.address ? custInfo.address : 'Update your profile'}
               </p>
@@ -93,7 +103,7 @@ const RenderPetProfile = () => {
               <p>
                 Country:{' '}
                 {custInfo.country ? custInfo.country : 'Update your profile'}
-              </p>
+              </p> */}
             </div>
           </div>
         </div>

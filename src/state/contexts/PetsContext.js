@@ -5,10 +5,10 @@ export const PetsContext = createContext({})
 
 // provider (holds the data for context to share)
 export const PetsProvider = ({ children }) => {
-    const [pets, setPets] = useState()
+    const [pets, setPets] = useState({})
 
     return (
-        <PetsContext.Provider value={[pets, setPets]}>
+        <PetsContext.Provider value={pets, setPets}>
             {children}
         </PetsContext.Provider>
     )
