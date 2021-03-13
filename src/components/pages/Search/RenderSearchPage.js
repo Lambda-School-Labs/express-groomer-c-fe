@@ -42,7 +42,7 @@ const Searching = () => {
     GroomersContext
   );
   const { searchValue, setSearchValue } = useContext(FormContext);
-  const { searchMiles, setSearchMiles } = useContext(FormContext);
+  //const { searchMiles, setSearchMiles } = useContext(FormContext);
   const { getGroomers } = useContext(APIContext);
 
   //API Call
@@ -56,10 +56,10 @@ const Searching = () => {
     setSearchValue(event.target.value);
   };
 
-  const milesChange = value => {
-    console.log('getting the value:', value);
-    setSearchMiles(value[0]);
-  };
+  // const milesChange = value => {
+  //   console.log('getting the value:', value);
+  //   setSearchMiles(value[0]);
+  // };
 
   const onSearch = () => {
     const result = allGroomers.filter(groomer =>
@@ -91,8 +91,8 @@ const Searching = () => {
       <div className="search-bar-filter">
         <Cascader
           options={options}
-          value={searchMiles}
-          onChange={milesChange}
+          //value={searchMiles}
+          //onChange={milesChange}
           placeholder="Filter by miles"
           style={{ width: 200, marginTop: 10 }}
         />
