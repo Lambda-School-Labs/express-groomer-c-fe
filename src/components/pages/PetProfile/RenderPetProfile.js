@@ -39,7 +39,7 @@ const RenderPetProfile = () => {
           </div>
   
           <div className="pet-header">
-            <p className="heading">{pets[count]?.pet_name}</p>
+            <p className="heading" style={{marginLeft: '35px'}}>{pets[count]?.pet_name}</p>
           </div>
           <div className="pet-info-box">
             <div className="panel">
@@ -52,17 +52,11 @@ const RenderPetProfile = () => {
               </div>
             </div>
             <div className="panel">
-              <Divider style={{ borderColor: 'lightblue' }}>
-                Clinical Info
-              </Divider>
+              <Divider style={{ borderColor: 'lightblue' }}>Clinical Info</Divider>
               <div className="panel-info">
-                <p>{`Spayed / Neutered: ${
-                  pets[count]?.spay_neuter ? 'Yes' : 'No'
-                }`}</p>
-                <p>{`Current on vaccines: ${
-                  pets[count]?.shots_current ? 'Yes' : 'No'
-                }`}</p>
-                <p>{`Special requests for groomer: ${pets[count]?.special_requests}`}</p>
+                <p>{`Spayed / Neutered: ${pets[count]?.spay_neuter ? 'Yes' : 'No'}`}</p>
+                <p>{`Current on vaccines: ${pets[count]?.shots_current ? 'Yes' : 'No'}`}</p>
+                <p>{`Special requests for groomer: ${pets[count]?.special_requests ? pets[count]?.special_requests : 'None'}`}</p>
               </div>
             </div>
           </div>
