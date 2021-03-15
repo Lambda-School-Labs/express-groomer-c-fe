@@ -28,7 +28,17 @@ const RenderPetProfile = () => {
   // console.log('getting pet')
   // getPet(authState)
 
-  console.log('Pets: ', pets)
+  // console.log('Pets: ', pets)
+  // console.log('Pet 0: ', pets[0])
+  // console.log('Pet 1: ', pets[1])
+  // console.log('Pet 0: ', pets[0]["pet_name"])
+  // console.log('Pet 0: ', pets[0].pet_name)
+
+  // let pet0 = pets[0]
+  // console.log(pet0)
+  // console.log(pet0.pet_name)
+  // console.log(pets[0]?.pet_name, pets[0]?.pet_breed, pets[0]?.pet_temperament)
+  // console.log(pets[1]?.pet_name)
 
   return (
     <div>
@@ -46,11 +56,7 @@ const RenderPetProfile = () => {
         </div>
 
         <div className="pet-header">
-          <p className="heading">
-            {custInfo.given_name
-              ? `${custInfo.given_name} ${custInfo.family_name}`
-              : userInfo.given_name}{' '}
-          </p>
+          <p className="heading">{pets[0]?.pet_name}</p>
         </div>
         <div className="pet-info-box">
           <div className="panel">
@@ -58,34 +64,19 @@ const RenderPetProfile = () => {
               Pet Info
             </Divider>
             <div className="panel-info">
-              <p>
-                Pet Name:{' '}
-                {custInfo.given_name
-                  ? custInfo.given_name
-                  : userInfo.given_name}
-              </p>
-              <p>
-                Breed:{' '}
-                {custInfo.family_name
-                  ? custInfo.family_name
-                  : userInfo.family_name}
-              </p>
-              <p>Gender:</p>
-              <p>Color: {userInfo.email}</p>
-              <p>
-                Temperament:{' '}
-                {custInfo.phone_number
-                  ? custInfo.phone_number
-                  : 'Update your profile'}
-              </p>
+              {/* <p>{`Name: ${pets[0]?.pet_name}`}</p> */}
+              <p>{`Breed: ${pets[0]?.pet_breed}`}</p>
+              <p>{`Gender: ${pets[0]?.pet_gender}`}</p>
+              <p>{`Color: ${pets[0]?.pet_color}`}</p>
+              <p>{`Temperament: ${pets[0]?.pet_temperament}`}</p>
             </div>
           </div>
           <div className="panel">
             <Divider style={{ borderColor: 'lightblue' }}>Clinical Info</Divider>
             <div className="panel-info">
-              <p>Spayed / Neutered:</p>
-              <p>Current on vaccines:</p>
-              <p>Special requests for groomer:</p>
+              <p>{`Spayed / Neutered: ${pets[0]?.spay_neuter}`}</p>
+              <p>{`Current on vaccines: ${pets[0]?.shots_current}`}</p>
+              <p>{`Special requests for groomer: ${pets[0]?.special_requests}`}</p>
               {/* <p>
                 Address:{' '}
                 {custInfo.address ? custInfo.address : 'Update your profile'}

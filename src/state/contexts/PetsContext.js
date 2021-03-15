@@ -8,7 +8,7 @@ export const PetsProvider = ({ children }) => {
     const [pets, setPets] = useState({})
 
     return (
-        <PetsContext.Provider value={pets, setPets}>
+        <PetsContext.Provider value={{pets, setPets}}>
             {children}
         </PetsContext.Provider>
     )
