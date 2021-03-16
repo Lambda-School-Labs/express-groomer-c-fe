@@ -105,7 +105,6 @@ const APIProvider = ({ children }) => {
   //AUTH
 
   const getAuthHeader = authState => {
-    // console.log('getAuthHeader, authState: ', authState);
     if (!authState.isAuthenticated) {
       throw new Error('Not authenticated');
     }
@@ -163,19 +162,13 @@ const APIProvider = ({ children }) => {
         .get(`${process.env.REACT_APP_API_URI}/customers/${userInfo.sub}`, {
           headers,
         })
-        .then(console.log('userInfo.sub: ', userInfo.sub)) // this seems to be what's getting lost and crashing the customer dashboard
+        // .then(console.log('userInfo.sub: ', userInfo.sub)) // this seems to be what's getting lost and crashing the customer dashboard
         .then(res => {
           if (res.data) {
             setCustInfo(res.data);
             setIsRegistered(true);
           }
         })
-        // .get(`${process.env.REACT_APP_API_URI}/customers/${userInfo.sub}`, {
-        //   headers,
-        // })
-        // .then(res => {
-        //   console.log('getCustomerByID: ', res)
-        // })
         .catch(err => {
           console.log(err);
         })

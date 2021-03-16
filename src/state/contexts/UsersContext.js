@@ -4,7 +4,7 @@ export const UsersContext = createContext({});
 
 const UsersProvider = ({ children }) => {
   const [userRole, setUserRole] = useState();
-  const [userInfo, setUserInfo] = useState();
+  const [userInfo, setUserInfo] = useState(null);
   const [isRegistered, setIsRegistered] = useState(false);
 
   return (

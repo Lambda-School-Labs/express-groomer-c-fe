@@ -32,12 +32,9 @@ const CustTab = () => {
 
   useEffect(() => {
     getCustomerByID(authState);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
     getPet(authState);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-
-  // testing that context is updated before pets are rendered in RenderPetProfile
-  // console.log('cust-tabs: ', pets)
 
   return (
     <div>
