@@ -12,9 +12,9 @@ export default function MyPets() {
   }
 
   return (
-    <div>
+    <div id="Pets">
       {petNames.map(pet => (
-        <p key={pet}>{pet}</p>
+        <div key={pet}>{pet}</div>
       ))}
     </div>
   );
