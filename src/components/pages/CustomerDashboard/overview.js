@@ -1,4 +1,5 @@
 import React from 'react';
+import MyPets from './MyPets';
 import './overview.scss';
 
 export default function Overview() {
@@ -7,9 +8,12 @@ export default function Overview() {
       <div className="Upcoming-Appointments">
         <h1>Upcoming Appointments</h1>
       </div>
+
       <div className="My-Pets">
         <h1>My Pets</h1>
+        <MyPets />
       </div>
+
       <div className="Favorite-Groomers">
         <h1>Favorite Groomers</h1>
       </div>
