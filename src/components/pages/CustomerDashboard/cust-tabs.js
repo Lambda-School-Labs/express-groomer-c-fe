@@ -11,6 +11,7 @@ import FileUpload from '../../common/FileUpload';
 import { CustomersContext } from '../../../state/contexts/CustomersContext';
 import { APIContext } from '../../../state/contexts/APIContext';
 import { useOktaAuth } from '@okta/okta-react';
+// import { PetsContext } from '../../../state/contexts/PetsContext'; // testing that context is updated before pets are rendered in RenderPetProfile
 
 const { TabPane } = Tabs;
 
@@ -26,11 +27,17 @@ const CustTab = () => {
   const { resultInfo } = useContext(FormContext);
   const { custInfo } = useContext(CustomersContext);
   const { getCustomerByID } = useContext(APIContext);
+  const { getPet } = useContext(APIContext);
+  // const { pets } = useContext(PetsContext); // testing that context is updated before pets are rendered in RenderPetProfile
 
   useEffect(() => {
     getCustomerByID(authState);
     // eslint-disable-next-line react-hooks/exhaustive-deps
+    getPet(authState);
   }, []);
+
+  // testing that context is updated before pets are rendered in RenderPetProfile
+  // console.log('cust-tabs: ', pets)
 
   return (
     <div>
@@ -85,37 +92,39 @@ const CustTab = () => {
           key="2"
         >
           <div>
-          {/* Pet form is placed inside a row component for easy center alignment*/}
-              <Row justify={'center'}>
-                <PetForm />
-              </Row>
+            {/* Pet form is placed inside a row component for easy center alignment*/}
+            <Row justify={'center'}>
+              <PetForm />
+            </Row>
 
-          {/* These 2 components will eventually live on pet display component*/}
-              <Row justify={'center'}>
-                <h2 style={{ marginTop: '10px' }}>Upload Pet Image</h2>
-              </Row>
-              <Row justify={'center'}>
-                <FileUpload
-                  /* logic will need to be added to get a pet from API for this
+            {/* These 2 components will eventually live on pet display component*/}
+            <Row justify={'center'}>
+              <h2 style={{ marginTop: '10px' }}>Upload Pet Image</h2>
+            </Row>
+            <Row justify={'center'}>
+              <FileUpload
+                /* logic will need to be added to get a pet from API for this
                   to be functional */
-                  uploadUrl={`pets/image-upload/${pet && pet.id}?customer_id=${
-                    custInfo.user_id
-                  }`}
-                />
-              </Row>
+                uploadUrl={`pets/image-upload/${pet && pet.id}?customer_id=${
+                  custInfo.user_id
+                }`}
+              />
+            </Row>
 
-              <Row justify={'center'}>
-                <h2 style={{ marginTop: '10px' }}>Upload Pet Vaccination Image</h2>
-              </Row>
-              <Row justify={'center'}>
-                <FileUpload
-                  /* logic will need to be added to get a pet from API for this
+            <Row justify={'center'}>
+              <h2 style={{ marginTop: '10px' }}>
+                Upload Pet Vaccination Image
+              </h2>
+            </Row>
+            <Row justify={'center'}>
+              <FileUpload
+                /* logic will need to be added to get a pet from API for this
                   to be functional */
-                  uploadUrl={`pets/vaccination-upload/${pet &&
-                    pet.id}?customer_id=${custInfo.user_id}`}
-                />
-              </Row>
-              <RenderPetProfile />
+                uploadUrl={`pets/vaccination-upload/${pet &&
+                  pet.id}?customer_id=${custInfo.user_id}`}
+              />
+            </Row>
+            <RenderPetProfile />
           </div>
         </TabPane>
 
@@ -129,7 +138,7 @@ const CustTab = () => {
         >
           Appointments
         </TabPane>
-        
+
         <TabPane
           tab={
             <span>
