@@ -105,7 +105,7 @@ const APIProvider = ({ children }) => {
   //AUTH
 
   const getAuthHeader = authState => {
-    console.log('getAuthHeader, authState: ', authState);
+    // console.log('getAuthHeader, authState: ', authState);
     if (!authState.isAuthenticated) {
       throw new Error('Not authenticated');
     }
