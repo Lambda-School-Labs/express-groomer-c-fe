@@ -27,6 +27,8 @@ import { AfterLogin } from './components/pages/AfterLogin';
 import { GroomerMap } from './components/pages/GroomerMap';
 require('dotenv').config();
 
+require('dotenv').config();
+
 ReactDOM.render(
   <Router>
     <RootProvider>

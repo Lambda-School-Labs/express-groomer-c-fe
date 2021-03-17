@@ -1,0 +1,27 @@
+
+.avatar{
+    width: 75px;
+    margin: 20px auto;
+}
+
+.pet-header{
+    display: flex;
+    justify-content: space-between;
+}
+
+.heading{
+    font-size: 20px;
+}
+
+.pet-info-box{
+    display: flex;
+
+    .panel{
+        width: 50%;
+        margin: 0px 10px;
+
+        .panel-info{
+            padding: 0px 25px;
+        }
+    }
+}
