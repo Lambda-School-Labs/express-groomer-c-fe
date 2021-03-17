@@ -4,15 +4,12 @@ import { UserOutlined } from '@ant-design/icons';
 import 'antd/dist/antd.css';
 import '../GroomerProfile/groomer.css';
 import PublicServices from './GroomerPublicServices';
-import './GroomerPublicProfile.scss'
+import './GroomerPublicProfile.scss';
 import { Rate } from 'antd';
 // context imports
 import { GroomersContext } from '../../../state/contexts/GroomersContext';
 import { APIContext } from '../../../state/contexts/APIContext';
 import CalendlyPopupWidget from '../../common/CalendlyPopupWidget';
-
-
-
 
 const GroomerPublicProfile = props => {
   const pathway = props.match.params.id;
@@ -20,26 +17,25 @@ const GroomerPublicProfile = props => {
   const { groomer } = useContext(GroomersContext);
   const { getGroomerByID } = useContext(APIContext);
 
-
-
   useEffect(() => {
     getGroomerByID(pathway);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [pathway]);
 
   if (groomer) {
-    var groomerHours = JSON.parse(groomer.hours)
+    var groomerHours = JSON.parse(groomer.hours);
 
     if (groomerHours === null) {
-      groomerHours = {sunday: {open:'CLOSED', close:""},
-      monday: {open:'CLOSED', close:""},
-      tuesday: {open:'CLOSED', close:""},
-      wednesday: {open:'CLOSED', close:""},
-      thursday: {open:'CLOSED', close:""},
-      friday: {open:'CLOSED', close:""},
-      saturday: {open:'CLOSED', close:""}}
+      groomerHours = {
+        sunday: { open: 'CLOSED', close: '' },
+        monday: { open: 'CLOSED', close: '' },
+        tuesday: { open: 'CLOSED', close: '' },
+        wednesday: { open: 'CLOSED', close: '' },
+        thursday: { open: 'CLOSED', close: '' },
+        friday: { open: 'CLOSED', close: '' },
+        saturday: { open: 'CLOSED', close: '' },
+      };
     }
-    
 
     return (
       <div className="groomer-public-box">
@@ -51,23 +47,23 @@ const GroomerPublicProfile = props => {
             padding: '2%',
           }}
         >
-
           <div className="customer-header">
             <p className="heading">{groomer.business_name}</p>
             <div className="rating">
-            <Rate />
+              <Rate />
             </div>
             <div className="avatar">
-            <Avatar size={74} icon={<UserOutlined />} />
-            <p> {groomer.given_name} {groomer.family_name} </p>
-          </div>
+              <Avatar size={74} icon={<UserOutlined />} />
+              <p>
+                {' '}
+                {groomer.given_name} {groomer.family_name}{' '}
+              </p>
+            </div>
           </div>
           <div className="customer-info-box">
             <div className="top-info-box">
               <div className="panel">
-                <Divider style={{ borderColor: 'lightblue' }}>
-                About
-                </Divider>
+                <Divider style={{ borderColor: 'lightblue' }}>About</Divider>
                 <div className="panel-info">
                   <p>{groomer.about}</p>
                 </div>
@@ -91,20 +87,41 @@ const GroomerPublicProfile = props => {
                 </div>
               </div>
               <div className="panel">
-                <Divider style={{ borderColor: 'lightblue' }}>
-                Hours
-                </Divider>
+                <Divider style={{ borderColor: 'lightblue' }}>Hours</Divider>
                 <div className="panel-info">
-                <p>Sunday: {groomerHours.sunday.open}  {groomerHours.sunday.close}</p>
-                <p>Monday: {groomerHours.monday.open}  {groomerHours.monday.close}</p>
-                <p>Tuesday: {groomerHours.tuesday.open}  {groomerHours.tuesday.close}</p>
-                <p>Wednesday: {groomerHours.wednesday.open}  {groomerHours.wednesday.close}</p>
-                <p>Thurday: {groomerHours.thursday.open}  {groomerHours.thursday.close}</p>
-                <p>Friday: {groomerHours.friday.open}  {groomerHours.friday.close}</p>
-                <p>Saturday: {groomerHours.saturday.open}  {groomerHours.saturday.close}</p>
+                  <p>
+                    Sunday: {groomerHours.sunday.open}{' '}
+                    {groomerHours.sunday.close}
+                  </p>
+                  <p>
+                    Monday: {groomerHours.monday.open}{' '}
+                    {groomerHours.monday.close}
+                  </p>
+                  <p>
+                    Tuesday: {groomerHours.tuesday.open}{' '}
+                    {groomerHours.tuesday.close}
+                  </p>
+                  <p>
+                    Wednesday: {groomerHours.wednesday.open}{' '}
+                    {groomerHours.wednesday.close}
+                  </p>
+                  <p>
+                    Thurday: {groomerHours.thursday.open}{' '}
+                    {groomerHours.thursday.close}
+                  </p>
+                  <p>
+                    Friday: {groomerHours.friday.open}{' '}
+                    {groomerHours.friday.close}
+                  </p>
+                  <p>
+                    Saturday: {groomerHours.saturday.open}{' '}
+                    {groomerHours.saturday.close}
+                  </p>
                 </div>
               </div>
-                <CalendlyPopupWidget scheduleLink={groomer.personal_calendly_link}/>
+              <CalendlyPopupWidget
+                scheduleLink={groomer.personal_calendly_link}
+              />
             </div>
           </div>
         </Layout.Content>
