@@ -58,8 +58,7 @@ const CustTab = () => {
         <TabPane
           tab={
             <span>
-              <i className="fas fa-paw"></i>
-              My Info
+              <i className="fas fa-paw"></i> My Info
             </span>
           }
           key="1"
