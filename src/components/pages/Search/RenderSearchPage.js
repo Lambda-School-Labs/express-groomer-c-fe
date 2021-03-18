@@ -3,7 +3,8 @@ import { SearchResults } from '../SearchResults/SearchResultsCard';
 import NoResults from '../SearchResults/NoResults';
 import 'antd/dist/antd.css';
 import './search.scss';
-import { Button, Col, Input, Row } from 'antd';
+import { Button, Col, Input, Row, Cascader } from 'antd';
+
 // context imports
 import { GroomersContext } from '../../../state/contexts/GroomersContext';
 import { APIContext } from '../../../state/contexts/APIContext';
@@ -11,6 +12,28 @@ import { FormContext } from '../../../state/contexts/FormContext';
 import { useHistory } from 'react-router-dom';
 
 const { Search } = Input;
+const options = [
+  {
+    value: 5,
+    label: '5 miles',
+  },
+  {
+    value: 10,
+    label: '10 miles',
+  },
+  {
+    value: 20,
+    label: '20 miles',
+  },
+  {
+    value: 30,
+    label: '30 miles',
+  },
+  {
+    value: 50,
+    label: '50 miles',
+  },
+];
 
 const Searching = () => {
   const history = useHistory();
@@ -28,6 +51,7 @@ const Searching = () => {
   }, []);
 
   const handleChange = event => {
+    console.log('getting the event:', event);
     setSearchValue(event.target.value);
   };
 
@@ -49,6 +73,13 @@ const Searching = () => {
           enterButton
           placeholder="Search by city"
           style={{ width: 500 }}
+        />
+      </div>
+      <div className="search-bar-filter">
+        <Cascader
+          options={options}
+          placeholder="Filter by miles"
+          style={{ width: 200, marginTop: 10 }}
         />
       </div>
       <Row justify={'center'} style={{ marginTop: '20px' }}>
