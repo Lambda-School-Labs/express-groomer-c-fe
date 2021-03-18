@@ -15,3 +15,7 @@ export const PetsProvider = ({ children }) => {
 };
 
 export default PetsProvider;
+
+// PetsContext holds pet data for the logged-in customer
+// Its initially populated in the useEffect in cust-tabs,
+// when the user loads the customer dashboard
