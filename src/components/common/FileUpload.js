@@ -7,6 +7,7 @@ import { useOktaAuth } from '@okta/okta-react';
 const FileUpload = ({ uploadUrl }) => {
   const { authState } = useOktaAuth();
   const [selectedFile, setSelectedFile] = useState();
+  const [fileUrl, setFileurl] = useState('');
 
   const getAuthHeader = authState => {
     if (!authState.isAuthenticated) {
@@ -23,18 +24,27 @@ const FileUpload = ({ uploadUrl }) => {
     const headers = getAuthHeader(authState);
 
     const formData = new FormData();
-    // setting the data to image because the server expects an 'image'
+    formData.append('upload_preset', 'sendCloudinary');
     formData.append('image', selectedFile);
 
-    const res = await axios.post(
-      `${process.env.REACT_APP_API_URI}/${uploadUrl}`,
-      formData,
-      {
-        headers,
-      }
-    );
-    console.log({ res });
+    axios
+      .post(
+        'https://api.cloudinary.com/v1_1/expressgroomer/image/upload',
+        formData
+      )
+      .then(res => setFileurl(res.data.secure_url))
+      .catch(error => console.log('Cloudinary error: ', error));
+
+    const res = await axios
+      .post(
+        `${process.env.REACT_APP_API_URI}/${uploadUrl}`,
+        { location: fileUrl },
+        { headers }
+      )
+      .then(console.log(res))
+      .catch(error => console.log('Error saving file URL.', error));
   };
+
   return (
     <div className={'upload-form'}>
       <input
@@ -44,15 +54,14 @@ const FileUpload = ({ uploadUrl }) => {
         name="file"
         onChange={changeHandler}
       />
-      <div>
-        <Button
-          className={'submit-button'}
-          type={'primary'}
-          onClick={handleSubmission}
-        >
-          Submit
-        </Button>
-      </div>
+
+      <Button
+        className={'submit-button'}
+        type={'primary'}
+        onClick={handleSubmission}
+      >
+        Submit
+      </Button>
     </div>
   );
 };
