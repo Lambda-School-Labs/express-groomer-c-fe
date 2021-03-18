@@ -90,7 +90,7 @@ const CustTab = () => {
           <div>
             {/* Pet form is placed inside a row component for easy center alignment*/}
             <Row justify={'center'}>
-              <PetForm />
+              <PetForm /> {/* This is the ADD PET button */}
             </Row>
 
             {/* These 2 components will eventually live on pet display component*/}

@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import { ProfileFormPO } from '../ProfileFormPO';
 import { Layout, Avatar, Divider } from 'antd';
 import { UserOutlined } from '@ant-design/icons';
+import VaccineImage from './VaccineImage';
 import 'antd/dist/antd.css';
 import './pet.scss';
 // context imports
@@ -62,6 +63,7 @@ const RenderPetProfile = () => {
                 </div>
               </div>
             </div>
+            <VaccineImage pet={pet.id} />
           </Layout.Content>
         </div>
       ))}
