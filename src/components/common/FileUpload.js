@@ -35,14 +35,16 @@ const FileUpload = ({ uploadUrl }) => {
       .then(res => setFileurl(res.data.secure_url))
       .catch(error => console.log('Cloudinary error: ', error));
 
-    const res = await axios
+    const sendImgToDB = await axios
       .post(
         `${process.env.REACT_APP_API_URI}/${uploadUrl}`,
         { location: fileUrl },
         { headers }
       )
-      .then(console.log(res))
+      .then(res => console.log(res))
       .catch(error => console.log('Error saving file URL.', error));
+
+    sendImgToDB();
   };
 
   return (
