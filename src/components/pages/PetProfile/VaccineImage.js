@@ -16,9 +16,7 @@ const VaccineImage = props => {
       </Divider>
       <Row justify={'center'}>
         <FileUpload
-          uploadUrl={`pets/vaccination-upload/${pet && pet.id}?customer_id=${
-            custInfo.user_id
-          }`}
+          uploadUrl={`pets/vaccination-upload/${pet}?customer_id=${custInfo.user_id}`}
         />
       </Row>
     </div>

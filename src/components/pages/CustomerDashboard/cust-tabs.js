@@ -107,19 +107,18 @@ const CustTab = () => {
               />
             </Row>
 
-            <Row justify={'center'}>
+            {/* <Row justify={'center'}>
               <h2 style={{ marginTop: '10px' }}>
                 Upload Pet Vaccination Image
               </h2>
             </Row>
             <Row justify={'center'}>
               <FileUpload
-                /* logic will need to be added to get a pet from API for this
-                  to be functional */
+                /* logic will need to be added to get a pet from API for this to be functional *
                 uploadUrl={`pets/vaccination-upload/${pet &&
                   pet.id}?customer_id=${custInfo.user_id}`}
               />
-            </Row>
+            </Row> */}
             <RenderPetProfile />
           </div>
         </TabPane>
