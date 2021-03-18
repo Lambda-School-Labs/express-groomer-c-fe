@@ -41,7 +41,7 @@ const FileUpload = ({ uploadUrl }) => {
     console.log(uploadUrl);
     const res = await axios.post(
       `${process.env.REACT_APP_API_URI}/${uploadUrl}`,
-      fileUrl,
+      { location: fileUrl },
       {
         headers,
       }
