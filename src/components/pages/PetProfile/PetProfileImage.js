@@ -38,7 +38,7 @@ const PetImageModal = props => {
             className="pet-profile-img"
           />
         ) : (
-          <Avatar size={74} icon={<UserOutlined />} />
+          <Avatar size={74} icon={<UserOutlined />} className="pet-avatar" />
         )}
       </div>
 
