@@ -1,7 +1,6 @@
 import React, { useContext } from 'react';
 import { ProfileFormPO } from '../ProfileFormPO';
-import { Layout, Avatar, Divider } from 'antd';
-import { UserOutlined } from '@ant-design/icons';
+import { Layout, Divider } from 'antd';
 import VaccineImage from './VaccineImage';
 import PetImageModal from './PetProfileImage';
 import 'antd/dist/antd.css';
@@ -28,15 +27,13 @@ const RenderPetProfile = () => {
               borderRadius: '1rem 1rem 0 0',
             }}
           >
-            <div className="avatar">
+            {/* <div className="avatar">
               <Avatar size={74} icon={<UserOutlined />} />
-              <PetImageModal />
-            </div>
+            </div> */}
 
             <div className="pet-header">
-              <p className="heading" style={{ marginLeft: '35px' }}>
-                {pet.pet_name}
-              </p>
+              <p className="heading">{pet.pet_name}</p>
+              <PetImageModal />
             </div>
             <div className="pet-info-box">
               <div className="panel">

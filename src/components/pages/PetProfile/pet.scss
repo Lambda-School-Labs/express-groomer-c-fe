@@ -1,16 +1,23 @@
 
 .avatar{
     width: 75px;
-    margin: 20px auto;
+    // margin: 20px auto;
 }
 
 .pet-header{
     display: flex;
     justify-content: space-between;
+    align-items: flex-end;
+    width: 96%;
+    margin: 0 auto;
+    // outline: 1px solid orange;
 }
 
 .heading{
     font-size: 20px;
+    margin: 0;
+    // outline: 1px solid green;
+    // padding-top: 20px;
 }
 
 .pet-info-box{
@@ -25,6 +32,18 @@
         }
     }
 }
+
+// PET PROFILE IMAGE
+
+.profile-img-container {
+    // outline: 1px solid red;
+}
+
+.profile-img-container:hover {
+    cursor: pointer;
+}
+
+// VACCINE IMAGE
 
 .vaccine-img-container {
     width: 90%;

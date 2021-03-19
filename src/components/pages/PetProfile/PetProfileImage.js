@@ -1,6 +1,7 @@
 import React from 'react';
 // import React, { useContext } from 'react';
-import { Button, Modal } from 'antd';
+import { Avatar, Modal } from 'antd';
+import { UserOutlined } from '@ant-design/icons';
 // import { FormContext } from '../../../state/contexts/FormContext';
 // import { APIContext } from '../../../state/contexts/APIContext';
 // import { useOktaAuth } from '@okta/okta-react';
@@ -30,9 +31,10 @@ const PetImageModal = () => {
 
   return (
     <>
-      <Button type="primary" onClick={showModal}>
-        Open Modal
-      </Button>
+      <div className="profile-img-container" onClick={showModal}>
+        <Avatar size={74} icon={<UserOutlined />} />
+      </div>
+
       <Modal
         title="Title"
         visible={visible}
