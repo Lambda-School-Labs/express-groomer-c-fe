@@ -27,14 +27,11 @@ const RenderPetProfile = () => {
               borderRadius: '1rem 1rem 0 0',
             }}
           >
-            {/* <div className="avatar">
-              <Avatar size={74} icon={<UserOutlined />} />
-            </div> */}
-
             <div className="pet-header">
               <p className="heading">{pet.pet_name}</p>
               <PetImageModal pet={pet.id} petImg={pet.pet_image_url} />
             </div>
+
             <div className="pet-info-box">
               <div className="panel">
                 <Divider style={{ borderColor: 'lightblue' }}>Pet Info</Divider>
@@ -45,6 +42,7 @@ const RenderPetProfile = () => {
                   <p>{`Temperament: ${pet.pet_temperament}`}</p>
                 </div>
               </div>
+
               <div className="panel">
                 <Divider style={{ borderColor: 'lightblue' }}>
                   Clinical Info
@@ -62,6 +60,7 @@ const RenderPetProfile = () => {
                 </div>
               </div>
             </div>
+
             <VaccineImage pet={pet.id} />
             <div className="vaccine-img-container">
               {pet.vaccination_image_url ? (
