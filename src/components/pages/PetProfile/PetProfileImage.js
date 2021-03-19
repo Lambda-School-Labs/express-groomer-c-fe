@@ -32,10 +32,9 @@ const PetImageModal = props => {
     <>
       <div className="profile-img-container" onClick={showModal}>
         {props.petImg ? (
-          <img
-            src={props.petImg}
-            alt="Pet Profile"
+          <div
             className="pet-profile-img"
+            style={{ backgroundImage: `url(${props.petImg})` }}
           />
         ) : (
           <Avatar size={74} icon={<UserOutlined />} className="pet-avatar" />
