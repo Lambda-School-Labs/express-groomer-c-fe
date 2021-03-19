@@ -1,13 +1,16 @@
 import React, { useContext } from 'react';
 import { CustomersContext } from '../../../state/contexts/CustomersContext';
-// import { PetsContext } from '../../../state/contexts/PetsContext';
+import { PetsContext } from '../../../state/contexts/PetsContext';
 import FileUpload from '../../common/FileUpload';
 import { Divider, Row } from 'antd';
 import './pet.scss';
 
 const VaccineImage = props => {
   const { custInfo } = useContext(CustomersContext);
-  const pet = props.pet;
+  const { pets } = useContext(PetsContext);
+  const thisPet = props.pet;
+
+  console.log('pets', pets);
 
   return (
     <div>
@@ -16,7 +19,7 @@ const VaccineImage = props => {
       </Divider>
       <Row justify={'center'}>
         <FileUpload
-          uploadUrl={`pets/vaccination-upload/${pet}?customer_id=${custInfo.user_id}`}
+          uploadUrl={`pets/vaccination-upload/${thisPet}?customer_id=${custInfo.user_id}`}
         />
       </Row>
     </div>

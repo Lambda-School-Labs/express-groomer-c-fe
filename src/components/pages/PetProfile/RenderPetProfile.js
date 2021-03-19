@@ -64,6 +64,15 @@ const RenderPetProfile = () => {
               </div>
             </div>
             <VaccineImage pet={pet.id} />
+            <div className="vaccine-img-container">
+              {pet.vaccination_image_url ? (
+                <img
+                  className="vaccine-img"
+                  src={pet.vaccination_image_url}
+                  alt="Vaccination"
+                />
+              ) : null}
+            </div>
           </Layout.Content>
         </div>
       ))}
