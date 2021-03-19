@@ -3,6 +3,7 @@ import { ProfileFormPO } from '../ProfileFormPO';
 import { Layout, Avatar, Divider } from 'antd';
 import { UserOutlined } from '@ant-design/icons';
 import VaccineImage from './VaccineImage';
+import PetImageModal from './PetProfileImage';
 import 'antd/dist/antd.css';
 import './pet.scss';
 // context imports
@@ -29,6 +30,7 @@ const RenderPetProfile = () => {
           >
             <div className="avatar">
               <Avatar size={74} icon={<UserOutlined />} />
+              <PetImageModal />
             </div>
 
             <div className="pet-header">
