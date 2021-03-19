@@ -37,10 +37,17 @@
 
 .profile-img-container {
     // outline: 1px solid red;
+    width: 33%;
+    height: 100px;
+    overflow: hidden;
 }
 
 .profile-img-container:hover {
     cursor: pointer;
+}
+
+.pet-profile-img {
+    width: 100%;
 }
 
 // VACCINE IMAGE

@@ -3,9 +3,7 @@ import { Avatar, Modal } from 'antd';
 import { UserOutlined } from '@ant-design/icons';
 import { CustomersContext } from '../../../state/contexts/CustomersContext';
 import FileUpload from '../../common/FileUpload';
-// import { FormContext } from '../../../state/contexts/FormContext';
-// import { APIContext } from '../../../state/contexts/APIContext';
-// import { useOktaAuth } from '@okta/okta-react';
+import './pet.scss';
 
 const PetImageModal = props => {
   const [visible, setVisible] = React.useState(false);
@@ -34,7 +32,11 @@ const PetImageModal = props => {
     <>
       <div className="profile-img-container" onClick={showModal}>
         {props.petImg ? (
-          <img src={props.petImg} alt="Pet Profile" />
+          <img
+            src={props.petImg}
+            alt="Pet Profile"
+            className="pet-profile-img"
+          />
         ) : (
           <Avatar size={74} icon={<UserOutlined />} />
         )}
