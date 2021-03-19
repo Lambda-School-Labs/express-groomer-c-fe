@@ -7,8 +7,8 @@ import { PetForm } from '../PetForm';
 import { RenderPetProfile } from '../PetProfile';
 // context imports
 import { FormContext } from '../../../state/contexts/FormContext';
-import FileUpload from '../../common/FileUpload';
-import { CustomersContext } from '../../../state/contexts/CustomersContext';
+// import FileUpload from '../../common/FileUpload';
+// import { CustomersContext } from '../../../state/contexts/CustomersContext';
 import { APIContext } from '../../../state/contexts/APIContext';
 import { useOktaAuth } from '@okta/okta-react';
 // import { PetsContext } from '../../../state/contexts/PetsContext'; // testing that context is updated before pets are rendered in RenderPetProfile
@@ -17,7 +17,7 @@ const { TabPane } = Tabs;
 
 // this will need to be deleted and pet, setPet will be used instead once
 // hooked up
-const pet = {};
+// const pet = {};
 
 const CustTab = () => {
   const { authState } = useOktaAuth();
@@ -25,7 +25,7 @@ const CustTab = () => {
   const [mode] = useState('left');
   // context state
   const { resultInfo } = useContext(FormContext);
-  const { custInfo } = useContext(CustomersContext);
+  // const { custInfo } = useContext(CustomersContext);
   const { getCustomerByID } = useContext(APIContext);
   const { getPet } = useContext(APIContext);
   // const { pets } = useContext(PetsContext); // testing that context is updated before pets are rendered in RenderPetProfile
@@ -91,20 +91,6 @@ const CustTab = () => {
             {/* Pet form is placed inside a row component for easy center alignment*/}
             <Row justify={'center'}>
               <PetForm /> {/* This is the ADD PET button */}
-            </Row>
-
-            {/* These 2 components will eventually live on pet display component*/}
-            <Row justify={'center'}>
-              <h2 style={{ marginTop: '10px' }}>Upload Pet Image</h2>
-            </Row>
-            <Row justify={'center'}>
-              <FileUpload
-                /* logic will need to be added to get a pet from API for this
-                  to be functional */
-                uploadUrl={`pets/image-upload/${pet && pet.id}?customer_id=${
-                  custInfo.user_id
-                }`}
-              />
             </Row>
 
             <RenderPetProfile />
