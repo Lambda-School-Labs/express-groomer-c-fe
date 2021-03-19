@@ -16,9 +16,12 @@ export default function MyPets() {
   return (
     <div id="Pets">
       {petNames.map(pet => (
-        <div key={pet}>
+        <div className="pet-container" key={pet}>
           <p>{pet[0]}</p>
-          <img className="pets-img" src={pet[1]} alt="Pet" />
+          <div
+            className="pets-img"
+            style={{ backgroundImage: `url(${pet[1]})` }}
+          />
         </div>
       ))}
     </div>
