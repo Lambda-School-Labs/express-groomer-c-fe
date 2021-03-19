@@ -8,13 +8,18 @@ export default function MyPets() {
 
   let i;
   for (i = 0; i < pets.length; i++) {
-    petNames.push(pets[i]?.pet_name);
+    petNames.push([pets[i]?.pet_name, pets[i]?.pet_image_url]);
   }
+
+  console.log(petNames);
 
   return (
     <div id="Pets">
       {petNames.map(pet => (
-        <div key={pet}>{pet}</div>
+        <div key={pet}>
+          <p>{pet[0]}</p>
+          <img className="pets-img" src={pet[1]} alt="Pet" />
+        </div>
       ))}
     </div>
   );
