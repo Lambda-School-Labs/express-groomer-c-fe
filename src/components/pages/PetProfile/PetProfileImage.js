@@ -1,15 +1,17 @@
-import React from 'react';
-// import React, { useContext } from 'react';
+import React, { useContext } from 'react';
 import { Avatar, Modal } from 'antd';
 import { UserOutlined } from '@ant-design/icons';
+import { CustomersContext } from '../../../state/contexts/CustomersContext';
 import FileUpload from '../../common/FileUpload';
 // import { FormContext } from '../../../state/contexts/FormContext';
 // import { APIContext } from '../../../state/contexts/APIContext';
 // import { useOktaAuth } from '@okta/okta-react';
 
-const PetImageModal = () => {
+const PetImageModal = props => {
   const [visible, setVisible] = React.useState(false);
   const [confirmLoading, setConfirmLoading] = React.useState(false);
+  const { custInfo } = useContext(CustomersContext);
+  const thisPet = props.pet;
 
   const showModal = () => {
     setVisible(true);
@@ -31,7 +33,11 @@ const PetImageModal = () => {
   return (
     <>
       <div className="profile-img-container" onClick={showModal}>
-        <Avatar size={74} icon={<UserOutlined />} />
+        {props.petImg ? (
+          <img src={props.petImg} alt="Pet Profile" />
+        ) : (
+          <Avatar size={74} icon={<UserOutlined />} />
+        )}
       </div>
 
       <Modal
@@ -41,7 +47,9 @@ const PetImageModal = () => {
         confirmLoading={confirmLoading}
         onCancel={handleCancel}
       >
-        <FileUpload />
+        <FileUpload
+          uploadUrl={`pets/image-upload/${thisPet}?customer_id=${custInfo.user_id}`}
+        />
       </Modal>
     </>
   );

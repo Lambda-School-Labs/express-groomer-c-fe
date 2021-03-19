@@ -33,7 +33,7 @@ const RenderPetProfile = () => {
 
             <div className="pet-header">
               <p className="heading">{pet.pet_name}</p>
-              <PetImageModal />
+              <PetImageModal pet={pet.id} petImg={pet.pet_image_url} />
             </div>
             <div className="pet-info-box">
               <div className="panel">
