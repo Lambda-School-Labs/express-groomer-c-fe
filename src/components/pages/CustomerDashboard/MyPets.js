@@ -1,5 +1,7 @@
 import React, { useContext } from 'react';
 import { PetsContext } from '../../../state/contexts/PetsContext';
+import { Avatar } from 'antd';
+import { UserOutlined } from '@ant-design/icons';
 import './overview.scss';
 
 export default function MyPets() {
@@ -18,10 +20,16 @@ export default function MyPets() {
       {petNames.map(pet => (
         <div className="pet-container" key={pet}>
           <p>{pet[0]}</p>
-          <div
-            className="pets-img"
-            style={{ backgroundImage: `url(${pet[1]})` }}
-          />
+          {pet[1] ? (
+            <div
+              className="pets-img"
+              style={{ backgroundImage: `url(${pet[1]})` }}
+            />
+          ) : (
+            <div className="pet-avatar">
+              <Avatar size={100} icon={<UserOutlined />} />
+            </div>
+          )}
         </div>
       ))}
     </div>
