@@ -51,9 +51,19 @@
 }
 
 .pet-avatar {
-    position: absolute;
-    right: 0;
-    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.avatar-upload-button {
+    font-size: .75rem;
+    height: 26px;
+    padding: 0 1rem;
+    margin-top: 5px;
+    color: white;
+    background: dodgerblue;
+    border: none;
 }
 
 // VACCINE IMAGE
