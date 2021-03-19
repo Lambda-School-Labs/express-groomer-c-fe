@@ -37,7 +37,7 @@ const PetImageModal = props => {
             style={{ backgroundImage: `url(${props.petImg})` }}
           />
         ) : (
-          <Avatar size={74} icon={<UserOutlined />} className="pet-avatar" />
+          <Avatar size={150} icon={<UserOutlined />} className="pet-avatar" />
         )}
       </div>
 
