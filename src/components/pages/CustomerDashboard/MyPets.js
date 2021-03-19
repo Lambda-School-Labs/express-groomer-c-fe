@@ -13,13 +13,11 @@ export default function MyPets() {
     petNames.push([pets[i]?.pet_name, pets[i]?.pet_image_url]);
   }
 
-  console.log(petNames);
-
   return (
     <div id="Pets">
       {petNames.map(pet => (
         <div className="pet-container" key={pet}>
-          <p>{pet[0]}</p>
+          <p className="pet-name">{pet[0]}</p>
           {pet[1] ? (
             <div
               className="pets-img"
