@@ -381,11 +381,11 @@ const LandingContainer = () => {
             </SectionOne>
             <SectionTwo>
               <IntroImage1
-                src={require('./images/golden-bath.jpg')}
+                src={require('./images/golden-bath.jpg').default}
                 alt="golden retriever"
               ></IntroImage1>
               <IntroImage2
-                src={require('./images/shortcoat-smile.jpg')}
+                src={require('./images/shortcoat-smile.jpg').default}
                 alt="shortcoat dog"
               ></IntroImage2>
             </SectionTwo>
@@ -413,7 +413,7 @@ const LandingContainer = () => {
 
             <HiddenRow>
               <Poodle
-                src={require('./images/poodle.jpg')}
+                src={require('./images/poodle.jpg').default}
                 alt="poodle"
               ></Poodle>
             </HiddenRow>
@@ -441,7 +441,7 @@ const LandingContainer = () => {
           <CenterDiv>
             <SectionThree>
               <GroomerImg
-                src={require('./images/groomer.jpg')}
+                src={require('./images/groomer.jpg').default}
                 alt="groomer"
               ></GroomerImg>
               <Caption>
