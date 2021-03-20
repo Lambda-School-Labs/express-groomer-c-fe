@@ -60,6 +60,9 @@ const FileUpload = ({ uploadUrl }) => {
           // console.log('Refresh pet state here');
           getPet(authState);
         }
+        if (res.data.message === 'Pet image updated') {
+          getPet(authState);
+        }
       })
       .catch(error => console.log('DB error', error));
 
