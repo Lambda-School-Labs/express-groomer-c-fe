@@ -58,8 +58,7 @@ const CustTab = () => {
         <TabPane
           tab={
             <span>
-              <i className="fas fa-paw"></i>
-              My Info
+              <i className="fas fa-paw"></i> My Info
             </span>
           }
           key="1"
@@ -91,7 +90,7 @@ const CustTab = () => {
           <div>
             {/* Pet form is placed inside a row component for easy center alignment*/}
             <Row justify={'center'}>
-              <PetForm />
+              <PetForm /> {/* This is the ADD PET button */}
             </Row>
 
             {/* These 2 components will eventually live on pet display component*/}
@@ -108,19 +107,6 @@ const CustTab = () => {
               />
             </Row>
 
-            <Row justify={'center'}>
-              <h2 style={{ marginTop: '10px' }}>
-                Upload Pet Vaccination Image
-              </h2>
-            </Row>
-            <Row justify={'center'}>
-              <FileUpload
-                /* logic will need to be added to get a pet from API for this
-                  to be functional */
-                uploadUrl={`pets/vaccination-upload/${pet &&
-                  pet.id}?customer_id=${custInfo.user_id}`}
-              />
-            </Row>
             <RenderPetProfile />
           </div>
         </TabPane>
