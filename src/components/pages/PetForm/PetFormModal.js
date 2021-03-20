@@ -129,7 +129,7 @@ const PetFormModal = () => {
               <Form.Item
                 label="Spayed / Neutered?"
                 name="spay_neuter"
-                checked="false"
+                checked={false}
                 valuePropName="checked"
               >
                 <Checkbox />
@@ -137,7 +137,7 @@ const PetFormModal = () => {
               <Form.Item
                 label="Current on vaccines?"
                 name="shots_current"
-                checked="false"
+                checked={false}
                 valuePropName="checked"
               >
                 <Checkbox />

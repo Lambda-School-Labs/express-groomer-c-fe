@@ -1,16 +1,20 @@
 import React from 'react';
+import MyPets from './MyPets';
 import './overview.scss';
 
 export default function Overview() {
   return (
     <div>
-      <div className="Upcoming-Appointments">
+      <div id="Upcoming-Appointments">
         <h1>Upcoming Appointments</h1>
       </div>
-      <div className="My-Pets">
+
+      <div id="My-Pets">
         <h1>My Pets</h1>
+        <MyPets />
       </div>
-      <div className="Favorite-Groomers">
+
+      <div id="Favorite-Groomers">
         <h1>Favorite Groomers</h1>
       </div>
     </div>
