@@ -51,7 +51,6 @@ const Searching = () => {
   }, []);
 
   const handleChange = event => {
-    console.log('getting the event:', event);
     setSearchValue(event.target.value);
   };
 

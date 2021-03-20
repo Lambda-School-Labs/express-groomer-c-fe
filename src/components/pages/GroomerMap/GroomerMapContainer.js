@@ -56,6 +56,7 @@ const GroomerMap = () => {
         <Col>
           <ReactMapGL
             {...viewport}
+            onViewportChange={nextViewport => setViewport(nextViewport)}
             mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_TOKEN}
             mapStyle={process.env.REACT_APP_MAPBOX_STYLE}
             onViewportChange={viewport => {
