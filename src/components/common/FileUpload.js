@@ -37,8 +37,6 @@ const FileUpload = ({ uploadUrl }) => {
 
       .catch(error => console.log('Cloudinary error: ', error));
 
-    console.log(fileUrl);
-    console.log(uploadUrl);
     const res = await axios.post(
       `${process.env.REACT_APP_API_URI}/${uploadUrl}`,
       { location: fileUrl },
