@@ -1,4 +1,4 @@
-.Upcoming-Appointments {
+#Upcoming-Appointments {
    display: flex; 
    justify-content: center;
    background-color: white;
@@ -7,7 +7,49 @@
    margin-right: 3%;
    margin-bottom: 3%;
 }
-.My-Pets {
+
+#My-Pets {
+   display: flex; 
+   flex-direction: column;
+   justify-content: flex-start;
+   align-items: center;
+   background-color: white;
+   border: solid;
+   height: 30vh;
+   margin-right: 3%;
+   margin-bottom: 3%;
+}
+
+#Pets {
+   display: flex;
+   justify-content: space-around;
+   flex-wrap: wrap;
+   width: 100%;
+}
+
+.pet-container {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   width: 120px;
+   height: 180px;
+}
+
+.pet-name {
+   margin: 0;
+   font-weight: 700;
+}
+
+.pets-img {
+   border-radius: .5rem;
+   background-repeat: no-repeat;
+   background-position: center;
+   background-size: cover;
+   width: 100%;
+   height: 100%;
+}
+
+#Favorite-Groomers {
    display: flex; 
    justify-content: center;
    background-color: white;
@@ -16,15 +58,7 @@
    margin-right: 3%;
    margin-bottom: 3%;
 }
-.Favorite-Groomers {
-   display: flex; 
-   justify-content: center;
-   background-color: white;
-   border: solid;
-   height: 30vh;
-   margin-right: 3%;
-   margin-bottom: 3%;
-}
+
 h1 {
    text-align: center;
 }

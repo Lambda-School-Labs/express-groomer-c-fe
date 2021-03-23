@@ -1,0 +1,86 @@
+
+.avatar{
+    width: 75px;
+}
+
+.pet-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    width: 90%;
+    margin: 0 auto;
+}
+
+.heading{
+    font-size: 20px;
+    margin: 0;
+}
+
+.pet-info-box{
+    display: flex;
+
+    .panel{
+        width: 50%;
+        margin: 0px 10px;
+
+        .panel-info{
+            padding: 0px 25px;
+        }
+    }
+}
+
+// PET PROFILE IMAGE
+
+.profile-img-container {
+    position: relative;
+    height: 150px;
+    width: 150px;
+}
+
+.profile-img-container:hover {
+    cursor: pointer;
+}
+
+.pet-profile-img {
+    border-radius: .5rem;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+}
+
+.pet-avatar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.avatar-upload-button {
+    font-size: .75rem;
+    height: 26px;
+    padding: 0 1rem;
+    margin-top: 5px;
+    color: white;
+    background: dodgerblue;
+    border: none;
+}
+
+.avatar-upload-button:hover {
+    background: #40a9ff;
+    transition: .5s;
+}
+
+// VACCINE IMAGE
+
+.vaccine-img-container {
+    width: 90%;
+    max-width: 600px;
+    margin: .5rem auto;
+}
+
+.vaccine-img {
+    width: 100%;
+    border: 1px solid lightblue;
+    border-radius: .5rem;
+}

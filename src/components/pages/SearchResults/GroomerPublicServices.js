@@ -6,22 +6,19 @@ import { GroomersContext } from '../../../state/contexts/GroomersContext';
 import { APIContext } from '../../../state/contexts/APIContext';
 
 const PublicServices = props => {
-
   // context state
-  const { groomerServices, servicesUpdated,} = useContext(
-    GroomersContext
-  );
+  const { groomerServices, servicesUpdated } = useContext(GroomersContext);
   const { getGroomerServicesByID } = useContext(APIContext);
   const pathway = useParams();
 
-  useEffect(()  => {
+  useEffect(() => {
     async function fetchData(id) {
       await getGroomerServicesByID(id);
     }
     let id = '';
     id = pathway;
-     
-    fetchData(id.id)
+
+    fetchData(id.id);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [servicesUpdated]);
 

@@ -10,7 +10,7 @@ export const GroomersContext = createContext({});
 const GroomersProvider = ({ children }) => {
   const [groomer, setGroomer] = useState();
   const [groomerInfo, setGroomerInfo] = useState({});
-  const [allGroomers, setAllGroomers] = useState();
+  const [allGroomers, setAllGroomers] = useState([]);
   const [filteredGroomers, setFilteredGroomers] = useState([]);
   const [groomerServices, setGroomerServices] = useState([]);
   const [updated, setUpdated] = useState(false);
