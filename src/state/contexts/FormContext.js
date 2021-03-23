@@ -8,6 +8,7 @@ const FormProvider = ({ children }) => {
   const [isDeleted, setIsDeleted] = useState(false);
   const [isError, setIsError] = useState(false);
   const [searchValue, setSearchValue] = useState('');
+  const [searchMiles, setSearchMiles] = useState();
   const [loading, setLoading] = useState(false);
   const [value, setValue] = useState(false);
   const [petFormVisible, setPetFormVisible] = useState(false);
@@ -52,6 +53,8 @@ const FormProvider = ({ children }) => {
         setShowDelModal,
         searchValue,
         setSearchValue,
+        searchMiles,
+        setSearchMiles,
         loading,
         setLoading,
         value,

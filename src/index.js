@@ -25,6 +25,9 @@ import GroomerPublicProfile from './components/pages/SearchResults/GroomerPublic
 import { RootProvider } from './state/contexts/RootContext';
 import { AfterLogin } from './components/pages/AfterLogin';
 import { GroomerMap } from './components/pages/GroomerMap';
+require('dotenv').config();
+
+require('dotenv').config();
 
 require('dotenv').config();
 

@@ -1,14 +1,19 @@
-import React, { useState } from 'react';
+import React, { useContext } from 'react';
 import axios from 'axios';
 import { Button } from 'antd';
 
 import './FileUpload.css';
 import { useOktaAuth } from '@okta/okta-react';
+import { APIContext } from '../../state/contexts/APIContext';
+
+// uploadUrl is the path to the DB endpoint in our API - it varies with what we're saving
+// fileUrl is the Cloudinary path where the file was saved
 
 const FileUpload = ({ uploadUrl }) => {
   const { authState } = useOktaAuth();
-  const [selectedFile, setSelectedFile] = useState();
-  const [fileUrl, setFileurl] = useState('');
+  const { getPet, getLoggedInGroomer } = useContext(APIContext);
+  let selectedFile = '';
+  let fileUrl = '';
 
   const getAuthHeader = authState => {
     if (!authState.isAuthenticated) {
@@ -18,7 +23,8 @@ const FileUpload = ({ uploadUrl }) => {
   };
 
   const changeHandler = event => {
-    setSelectedFile(event.target.files[0]);
+    selectedFile = event.target.files[0];
+    // console.log('selectedFile', selectedFile);
   };
 
   const handleSubmission = async () => {
@@ -28,23 +34,43 @@ const FileUpload = ({ uploadUrl }) => {
     formData.append('upload_preset', 'sendCloudinary');
     formData.append('file', selectedFile);
 
-    axios
+    await axios
       .post(
         'https://api.cloudinary.com/v1_1/expressgroomer/image/upload',
         formData
       )
-      .then(res => setFileurl(res.data.secure_url))
-
+      .then(res => (fileUrl = res.data.secure_url))
+      // .then(res => console.log('Cloudinary response', res))
       .catch(error => console.log('Cloudinary error: ', error));
 
-    const res = await axios.post(
-      `${process.env.REACT_APP_API_URI}/${uploadUrl}`,
-      { location: fileUrl },
-      {
-        headers,
-      }
-    );
-    console.log({ res }, 'Test Res');
+    // console.log('file URL', fileUrl);
+    // console.log('upload URL', uploadUrl);
+
+    axios
+      .post(
+        `${process.env.REACT_APP_API_URI}/${uploadUrl}`,
+        { location: fileUrl },
+        {
+          headers,
+        }
+      )
+      .then(res => {
+        // console.log('DB response', res);
+        if (res.data.message === 'Pet vaccination updated') {
+          // console.log('Refresh pet state here');
+          getPet(authState);
+        }
+        if (res.data.message === 'Groomer License Image') {
+          // console.log('Refresh pet state here');
+          getLoggedInGroomer(authState);
+        }
+        if (res.data.message === 'Pet image updated') {
+          getPet(authState);
+        }
+      })
+      .catch(error => console.log('DB error', error));
+
+    // console.log('file URL-2', fileUrl);
   };
 
   return (

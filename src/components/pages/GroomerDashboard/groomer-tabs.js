@@ -10,11 +10,9 @@ import FileUpload from '../../common/FileUpload';
 import { GroomersContext } from '../../../state/contexts/GroomersContext';
 
 const { TabPane } = Tabs;
-
 const GroomerTab = () => {
   const { resultInfo } = useContext(FormContext);
   const { groomerInfo } = useContext(GroomersContext);
-
   const [mode] = useState('left');
 
   return (

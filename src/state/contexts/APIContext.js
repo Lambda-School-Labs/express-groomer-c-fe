@@ -8,6 +8,7 @@ import { UsersContext } from './UsersContext';
 import { GroomersContext } from './GroomersContext';
 import { CustomersContext } from './CustomersContext';
 import { FormContext } from './FormContext';
+import { PetsContext } from './PetsContext'; // adding pet data
 
 export const APIContext = createContext({});
 
@@ -15,6 +16,7 @@ const APIProvider = ({ children }) => {
   const history = useHistory();
   const { userInfo, setIsRegistered } = useContext(UsersContext);
   const { setCustInfo } = useContext(CustomersContext);
+  const { setPets } = useContext(PetsContext); // adding pet data
 
   const {
     setGroomerInfo,
@@ -155,19 +157,22 @@ const APIProvider = ({ children }) => {
   const getCustomerByID = authState => {
     const headers = getAuthHeader(authState);
 
-    return axios
-      .get(`${process.env.REACT_APP_API_URI}/customers/${userInfo.sub}`, {
-        headers,
-      })
-      .then(res => {
-        if (res.data) {
-          setCustInfo(res.data);
-          setIsRegistered(true);
-        }
-      })
-      .catch(err => {
-        console.log(err);
-      });
+    return (
+      axios
+        .get(`${process.env.REACT_APP_API_URI}/customers/${userInfo.sub}`, {
+          headers,
+        })
+        // .then(console.log('userInfo.sub: ', userInfo.sub)) // this seems to be what's getting lost and crashing the customer dashboard
+        .then(res => {
+          if (res.data) {
+            setCustInfo(res.data);
+            setIsRegistered(true);
+          }
+        })
+        .catch(err => {
+          console.log(err);
+        })
+    );
   };
 
   //GROOMER PROFILE FORM FUNCTIONS
@@ -314,6 +319,22 @@ const APIProvider = ({ children }) => {
       });
   };
 
+  const getPet = authState => {
+    const headers = getAuthHeader(authState);
+
+    return axios
+      .get(
+        `${process.env.REACT_APP_API_URI}/pets?customer_id=${userInfo.sub}`,
+        headers
+      )
+      .then(res => {
+        setPets(res.data);
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  };
+
   return (
     <APIContext.Provider
       value={{
@@ -333,6 +354,7 @@ const APIProvider = ({ children }) => {
         deleteService,
         deleteProfile,
         addNewPet,
+        getPet,
         getServices,
         getLatLng,
       }}
