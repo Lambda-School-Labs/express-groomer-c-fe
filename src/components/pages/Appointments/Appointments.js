@@ -12,27 +12,14 @@ const Appointments = props => {
           { type: 'error', content: '1 PM' },
         ];
         break;
-      case 8:
+      case 19:
         listData = [
-          { type: 'warning', content: 'This is warning event.' },
-          { type: 'success', content: 'This is usual event.' },
-        ];
-        break;
-      case 10:
-        listData = [
-          { type: 'warning', content: 'This is warning event.' },
-          { type: 'success', content: 'This is usual event.' },
-          { type: 'error', content: 'This is error event.' },
-        ];
-        break;
-      case 15:
-        listData = [
-          { type: 'warning', content: 'This is warning event' },
-          { type: 'success', content: 'This is very long usual event。。....' },
-          { type: 'error', content: 'This is error event 1.' },
-          { type: 'error', content: 'This is error event 2.' },
-          { type: 'error', content: 'This is error event 3.' },
-          { type: 'error', content: 'This is error event 4.' },
+          { type: 'success', content: '9 AM' },
+          { type: 'warning', content: '11 AM' },
+          { type: 'error', content: '12 PM' },
+          { type: 'success', content: '1 PM' },
+          { type: 'warning', content: '2 PM' },
+          { type: 'error', content: '3 PM' },
         ];
         break;
       default:
