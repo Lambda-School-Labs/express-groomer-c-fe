@@ -59,7 +59,14 @@ const Appointments = props => {
 
   return (
     <div style={{ marginBottom: '2rem' }}>
-      <h2 style={{ textAlign: 'center', color: 'white', fontSize: 28 }}>
+      <h2
+        style={{
+          textAlign: 'center',
+          color: 'white',
+          fontSize: 28,
+          marginBottom: '.75rem',
+        }}
+      >
         Schedule Appointments
       </h2>
       <GCal />

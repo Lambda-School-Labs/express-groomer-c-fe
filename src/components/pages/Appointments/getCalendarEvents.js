@@ -1,4 +1,5 @@
 import React from 'react';
+import './appointments.scss';
 
 function GCal() {
   const gapi = window.gapi;
@@ -90,21 +91,18 @@ function GCal() {
   };
 
   return (
-    <div className="App">
-      <header className="App-header">
-        <p>Click to add event to Google Calendar</p>
-        <div style={{ display: 'flex' }}>
-          <button
-            style={{ width: 100, height: 30, marginRight: '1rem' }}
-            onClick={handleAddEvent}
-          >
-            Add Event
-          </button>
-          <button style={{ width: 100, height: 30 }} onClick={handleGetEvents}>
-            Get Events
-          </button>
-        </div>
-      </header>
+    <div className="button-container">
+      <button
+        className="appt-button"
+        style={{ marginRight: 0 }}
+        onClick={handleAddEvent}
+      >
+        Add Appointment
+      </button>
+
+      <button className="appt-button" onClick={handleGetEvents}>
+        Refresh Appointments
+      </button>
     </div>
   );
 }
