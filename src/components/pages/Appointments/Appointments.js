@@ -5,6 +5,13 @@ const Appointments = props => {
   function getListData(value) {
     let listData;
     switch (value.date()) {
+      case 1:
+        listData = [
+          { type: 'success', content: '9 AM' },
+          { type: 'warning', content: '11 AM' },
+          { type: 'error', content: '1 PM' },
+        ];
+        break;
       case 8:
         listData = [
           { type: 'warning', content: 'This is warning event.' },
@@ -36,7 +43,7 @@ const Appointments = props => {
   function dateCellRender(value) {
     const listData = getListData(value);
     return (
-      <ul className="events">
+      <ul className="events" style={{ listStyleType: 'none', padding: 0 }}>
         {listData.map(item => (
           <li key={item.content}>
             <Badge status={item.type} text={item.content} />
@@ -65,7 +72,7 @@ const Appointments = props => {
   return (
     <div style={{ marginBottom: '2rem' }}>
       <h2 style={{ textAlign: 'center', color: 'white', fontSize: 28 }}>
-        Appointments
+        Schedule Appointments
       </h2>
       <Calendar
         dateCellRender={dateCellRender}
