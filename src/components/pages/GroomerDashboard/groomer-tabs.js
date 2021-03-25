@@ -2,6 +2,7 @@ import React, { useContext, useState } from 'react';
 import { Alert, Col, Form, Row, Tabs } from 'antd';
 import Appointments from '../Appointments/Appointments';
 import FileUpload from '../../common/FileUpload';
+// import GCal from '../Appointments/getCalendarEvents';
 import GroomerProfilePage from '../GroomerProfile/GroomerProfilePage';
 import Overview from './overview';
 import RenderFormGR from '../ProfileFormGR/RenderFormGR';
@@ -89,6 +90,7 @@ const GroomerTab = () => {
           }
           key="3"
         >
+          {/* <GCal /> */}
           <Appointments />
         </TabPane>
       </Tabs>

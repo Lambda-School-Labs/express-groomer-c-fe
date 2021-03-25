@@ -94,13 +94,17 @@ function GCal() {
     <div className="button-container">
       <button
         className="appt-button"
-        style={{ marginRight: 0 }}
+        style={{ width: 160, marginRight: 0 }}
         onClick={handleAddEvent}
       >
         Add Appointment
       </button>
 
-      <button className="appt-button" onClick={handleGetEvents}>
+      <button
+        className="appt-button"
+        style={{ width: 160 }}
+        onClick={handleGetEvents}
+      >
         Refresh Appointments
       </button>
     </div>

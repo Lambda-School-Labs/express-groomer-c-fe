@@ -5,17 +5,20 @@ import UsersContext from './UsersContext';
 import APIContext from './APIContext';
 import FormContext from './FormContext';
 import PetsProvider from './PetsContext';
+import AppointmentsProvider from './AppointmentsContext';
 
 export const RootProvider = ({ children }) => {
   return (
     <UsersContext>
       <PetsProvider>
         <GroomersProvider>
-          <CustomersProvider>
-            <FormContext>
-              <APIContext>{children}</APIContext>
-            </FormContext>
-          </CustomersProvider>
+          <AppointmentsProvider>
+            <CustomersProvider>
+              <FormContext>
+                <APIContext>{children}</APIContext>
+              </FormContext>
+            </CustomersProvider>
+          </AppointmentsProvider>
         </GroomersProvider>
       </PetsProvider>
     </UsersContext>
