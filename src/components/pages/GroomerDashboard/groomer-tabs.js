@@ -1,12 +1,13 @@
 import React, { useContext, useState } from 'react';
 import { Alert, Col, Form, Row, Tabs } from 'antd';
-import Overview from './overview';
+import Appointments from '../Appointments/Appointments';
+import FileUpload from '../../common/FileUpload';
 import GroomerProfilePage from '../GroomerProfile/GroomerProfilePage';
+import Overview from './overview';
 import RenderFormGR from '../ProfileFormGR/RenderFormGR';
 import './groomer-dash.scss';
 // context imports
 import { FormContext } from '../../../state/contexts/FormContext';
-import FileUpload from '../../common/FileUpload';
 import { GroomersContext } from '../../../state/contexts/GroomersContext';
 
 const { TabPane } = Tabs;
@@ -51,7 +52,7 @@ const GroomerTab = () => {
           <Row justify={'center'}>
             <h2 style={{ marginTop: '10px' }}>Upload License</h2>
           </Row>
-          <Row justify={'center'}>
+          <Row justify={'center'} style={{ width: '75%', margin: 'auto' }}>
             <FileUpload
               uploadUrl={`groomers/license-upload/${groomerInfo.user_id}`}
             />
@@ -88,7 +89,7 @@ const GroomerTab = () => {
           }
           key="3"
         >
-          Appointments
+          <Appointments />
         </TabPane>
       </Tabs>
     </div>
