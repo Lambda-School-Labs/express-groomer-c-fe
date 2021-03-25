@@ -1,5 +1,6 @@
 import React from 'react';
 import { Calendar, Badge } from 'antd';
+import GCal from './getCalendarEvents';
 
 const Appointments = props => {
   function getListData(value) {
@@ -61,6 +62,7 @@ const Appointments = props => {
       <h2 style={{ textAlign: 'center', color: 'white', fontSize: 28 }}>
         Schedule Appointments
       </h2>
+      <GCal />
       <Calendar
         dateCellRender={dateCellRender}
         monthCellRender={monthCellRender}
