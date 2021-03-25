@@ -1,15 +1,7 @@
 import React from 'react';
 import { Calendar, Badge } from 'antd';
-// import React, { useContext } from 'react';
-// import { CustomersContext } from '../../../state/contexts/CustomersContext';
-// import FileUpload from '../../common/FileUpload';
-// import { Divider, Row } from 'antd';
-// import './pet.scss';
 
 const Appointments = props => {
-  //   const { custInfo } = useContext(CustomersContext);
-  //   const thisPet = props.pet;
-
   function getListData(value) {
     let listData;
     switch (value.date()) {
@@ -79,23 +71,8 @@ const Appointments = props => {
         dateCellRender={dateCellRender}
         monthCellRender={monthCellRender}
       />
-
-      {/* <Divider style={{ borderColor: 'lightblue' }}>
-        Upload Pet Vaccination Image
-      </Divider>
-
-      <Row justify={'center'} style={{ width: '90%', margin: 'auto' }}>
-        <FileUpload
-          uploadUrl={`pets/vaccination-upload/${thisPet}?customer_id=${custInfo.user_id}`}
-        />
-      </Row> */}
     </div>
   );
 };
-
-// ReactDOM.render(
-//   <Calendar dateCellRender={dateCellRender} monthCellRender={monthCellRender} />,
-//   mountNode,
-// );
 
 export default Appointments;
