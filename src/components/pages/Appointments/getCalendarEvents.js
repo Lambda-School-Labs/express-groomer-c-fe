@@ -1,4 +1,5 @@
 import React from 'react';
+// import AppointmentsContext from '../../../state/contexts/AppointmentsContext';
 import './appointments.scss';
 
 function GCal() {
@@ -7,6 +8,8 @@ function GCal() {
   const API_KEY = `${process.env.REACT_APP_GAPI_API_KEY}`;
   const DISCOVERY_DOCS = [`${process.env.REACT_APP_GAPI_DISCOVERY_DOCS}`];
   const SCOPES = `${process.env.REACT_APP_GAPI_SCOPES}`;
+
+  //   const { appointments, setAppointments } = useContext(AppointmentsContext);
 
   // Load client & calendar
   gapi.load('client:auth2', () => {
@@ -32,35 +35,46 @@ function GCal() {
         const eventEndTime = new Date();
         eventEndTime.setMinutes(eventEndTime.getMinutes() + 30);
 
-        var event = {
-          summary: '3/24 Refactor',
-          location: '800 Howard St., San Francisco, CA 94103',
-          description: 'Really great refreshments',
+        // const event = {
+        //   summary: '3/24 Refactor',
+        //   location: '800 Howard St., San Francisco, CA 94103',
+        //   description: 'Really great refreshments',
+        //   start: {
+        //     dateTime: eventStartTime,
+        //     timeZone: 'America/Los_Angeles',
+        //   },
+        //   end: {
+        //     dateTime: eventStartTime,
+        //     timeZone: 'America/Los_Angeles',
+        //   },
+        //   // 'recurrence': [
+        //   //   'RRULE:FREQ=DAILY;COUNT=2'
+        //   // ],
+        //   attendees: [
+        //     { email: 'lpage@example.com' },
+        //     { email: 'sbrin@example.com' },
+        //   ],
+        //   reminders: {
+        //     useDefault: false,
+        //     overrides: [
+        //       { method: 'email', minutes: 24 * 60 },
+        //       { method: 'popup', minutes: 10 },
+        //     ],
+        //   },
+        // };
+
+        const event = {
+          summary: 'Client Name',
+          description: 'Service',
           start: {
             dateTime: eventStartTime,
-            timeZone: 'America/Los_Angeles',
           },
           end: {
             dateTime: eventStartTime,
-            timeZone: 'America/Los_Angeles',
-          },
-          // 'recurrence': [
-          //   'RRULE:FREQ=DAILY;COUNT=2'
-          // ],
-          attendees: [
-            { email: 'lpage@example.com' },
-            { email: 'sbrin@example.com' },
-          ],
-          reminders: {
-            useDefault: false,
-            overrides: [
-              { method: 'email', minutes: 24 * 60 },
-              { method: 'popup', minutes: 10 },
-            ],
           },
         };
 
-        var request = gapi.client.calendar.events.insert({
+        const request = gapi.client.calendar.events.insert({
           calendarId: 'primary',
           resource: event,
         });
@@ -87,6 +101,8 @@ function GCal() {
       .then(response => {
         const events = response.result.items;
         console.log('EVENTS: ', events);
+        // setAppointments(events);
+        // console.log('APPOINTMENTS: ', appointments);
       });
   };
 
