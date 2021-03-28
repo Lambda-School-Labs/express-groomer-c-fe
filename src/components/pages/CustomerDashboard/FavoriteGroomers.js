@@ -1,8 +1,8 @@
 import React, { useContext, useEffect } from 'react';
 import { APIContext } from '../../../state/contexts/APIContext';
 import { GroomersContext } from '../../../state/contexts/GroomersContext';
-// import { Avatar } from 'antd';
-// import { UserOutlined } from '@ant-design/icons';
+import { Avatar } from 'antd';
+import { UserOutlined } from '@ant-design/icons';
 import './overview.scss';
 
 function FavoriteGroomers() {
@@ -21,9 +21,13 @@ function FavoriteGroomers() {
   }, []);
 
   return (
-    <div id="fav-Groomers">
-      <div className="fav-Groomers-container"></div>
-      <p className="fav-Groomers-name">{groomer.business_name}</p>
+    <div id="Groomers">
+      <div className="fav-Groomers-container">
+        <p className="fav-Groomers-name">{groomer.business_name}</p>
+        <div className="pet-avatar">
+          <Avatar size={100} icon={<UserOutlined />} />
+        </div>
+      </div>
     </div>
   );
 }
