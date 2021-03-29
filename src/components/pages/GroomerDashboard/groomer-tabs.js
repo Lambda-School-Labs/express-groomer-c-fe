@@ -49,7 +49,7 @@ const GroomerTab = () => {
           <Row justify={'center'}>
             <h2 style={{ marginTop: '10px' }}>Upload License</h2>
           </Row>
-          <Row justify={'center'}>
+          <Row justify={'center'} style={{ width: '75%', margin: 'auto' }}>
             <FileUpload
               uploadUrl={`groomers/license-upload/${groomerInfo.user_id}`}
             />
