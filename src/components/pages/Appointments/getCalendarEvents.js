@@ -1,6 +1,24 @@
 import React from 'react';
+// import AddAppointment from './AddAppointment';
 // import AppointmentsContext from '../../../state/contexts/AppointmentsContext';
 import './appointments.scss';
+
+// This component communicates with the Google API (gapi) to add events to a
+// user's calendar and get events from the same calendar. Its currently hardcoded
+// to use expressgroomer001@gmail.com. Its possible that accounts will need to be
+// created for other groomers (there are 4 in total) so that their calendars can
+// also be updated.
+
+// expressgroomer001@gmail.com needs to be logged in as the primary gmail account
+// on the machine that's running the program for HandleGetEvents to work. If another
+// account is logged in, it will return errors instead of an array of events.
+
+// The global state for appointments has been commented out, because its giving
+// an error when used. To add it back, uncomment out the AppointmentsContext from
+// here and AppointmentsProvider from RootContext.
+
+// An AddAppointment component was started. It was meant to include a modal that
+// shows an individual component's details when clicked, but hasn't beeb completed.
 
 function GCal() {
   const gapi = window.gapi;
@@ -27,6 +45,11 @@ function GCal() {
 
   // Add an event (hardcoded event)
   const handleAddEvent = () => {
+    console.log('handleAddEvent');
+    // return (
+    //     // <AddAppointment />
+    // );
+
     gapi.auth2
       .getAuthInstance()
       .signIn()
@@ -34,34 +57,6 @@ function GCal() {
         const eventStartTime = new Date();
         const eventEndTime = new Date();
         eventEndTime.setMinutes(eventEndTime.getMinutes() + 30);
-
-        // const event = {
-        //   summary: '3/24 Refactor',
-        //   location: '800 Howard St., San Francisco, CA 94103',
-        //   description: 'Really great refreshments',
-        //   start: {
-        //     dateTime: eventStartTime,
-        //     timeZone: 'America/Los_Angeles',
-        //   },
-        //   end: {
-        //     dateTime: eventStartTime,
-        //     timeZone: 'America/Los_Angeles',
-        //   },
-        //   // 'recurrence': [
-        //   //   'RRULE:FREQ=DAILY;COUNT=2'
-        //   // ],
-        //   attendees: [
-        //     { email: 'lpage@example.com' },
-        //     { email: 'sbrin@example.com' },
-        //   ],
-        //   reminders: {
-        //     useDefault: false,
-        //     overrides: [
-        //       { method: 'email', minutes: 24 * 60 },
-        //       { method: 'popup', minutes: 10 },
-        //     ],
-        //   },
-        // };
 
         const event = {
           summary: 'Client Name',
@@ -92,10 +87,10 @@ function GCal() {
     gapi.client.calendar.events
       .list({
         calendarId: 'primary',
-        //   'timeMin': (new Date()).toISOString(),
+        //   'timeMin': (new Date()).toISOString(), // commended out so all events return
         showDeleted: false,
         singleEvents: true,
-        maxResults: 10,
+        // maxResults: 10, // commented out so all events return, not just a given number
         orderBy: 'startTime',
       })
       .then(response => {
@@ -112,6 +107,7 @@ function GCal() {
         className="appt-button"
         style={{ width: 160, marginRight: 0 }}
         onClick={handleAddEvent}
+        // onClick={<AddAppointment />}
       >
         Add Appointment
       </button>

@@ -2,6 +2,14 @@ import React from 'react';
 import { Calendar, Badge } from 'antd';
 import GCal from './getCalendarEvents';
 
+// This component needs to be completed. It currently renders hardcoded data onto
+// an Ant Design calendar component. Ideally, it will be connected to Google
+// Calendar and use data from the getCalendarEvents component. The listData uses
+// a switch statement in which each case is a date for the given month. An issue
+// with And Design's calendar is that the data isn't filtered for the given month,
+// so data for the 1st of the month will appear on the first of EVERY month, as
+// will any other dates, so filtering will need to be built out.
+
 const Appointments = props => {
   function getListData(value) {
     let listData;
