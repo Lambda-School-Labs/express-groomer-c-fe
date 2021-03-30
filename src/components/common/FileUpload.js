@@ -11,7 +11,7 @@ import { APIContext } from '../../state/contexts/APIContext';
 
 const FileUpload = ({ uploadUrl }) => {
   const { authState } = useOktaAuth();
-  const { getPet } = useContext(APIContext);
+  const { getPet, getLoggedInGroomer } = useContext(APIContext);
   let selectedFile = '';
   let fileUrl = '';
 
@@ -59,6 +59,10 @@ const FileUpload = ({ uploadUrl }) => {
         if (res.data.message === 'Pet vaccination updated') {
           // console.log('Refresh pet state here');
           getPet(authState);
+        }
+        if (res.data.message === 'Groomer License Image') {
+          // console.log('Refresh pet state here');
+          getLoggedInGroomer(authState);
         }
         if (res.data.message === 'Pet image updated') {
           getPet(authState);
