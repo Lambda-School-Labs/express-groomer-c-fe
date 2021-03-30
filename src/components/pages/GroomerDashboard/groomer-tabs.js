@@ -5,7 +5,6 @@ import FileUpload from '../../common/FileUpload';
 import { Alert, Col, Form, Row, Tabs, Image } from 'antd';
 import Overview from './overview';
 import GroomerProfilePage from '../GroomerProfile/GroomerProfilePage';
-import Overview from './overview';
 import RenderFormGR from '../ProfileFormGR/RenderFormGR';
 import './groomer-dash.scss';
 // context imports

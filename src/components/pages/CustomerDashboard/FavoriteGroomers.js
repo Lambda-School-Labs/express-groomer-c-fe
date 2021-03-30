@@ -1,6 +1,4 @@
-import React, { useContext } from 'react';
-import { APIContext } from '../../../state/contexts/APIContext';
-import { GroomersContext } from '../../../state/contexts/GroomersContext';
+import React from 'react';
 import { Avatar } from 'antd';
 import { UserOutlined } from '@ant-design/icons';
 import './overview.scss';
@@ -8,17 +6,6 @@ import './overview.scss';
 // THIS FEATURE IS HARDCODED AND NEEDS TO BE CONNECTED TO THE FAV GROOMERS BACKEND.
 
 function FavoriteGroomers() {
-  const { getGroomerByID } = useContext(APIContext);
-  const { groomer } = useContext(GroomersContext);
-
-  const groomerTest = () => {
-    console.log('Running Groomer Test');
-    getGroomerByID('00ulthapbErVUwVJy4x6');
-    console.log(groomer, 'Groomer');
-    // console.log(groomerTest);
-  };
-  groomerTest();
-
   return (
     <div id="Groomers">
       <div className="fav-Groomers-container">
