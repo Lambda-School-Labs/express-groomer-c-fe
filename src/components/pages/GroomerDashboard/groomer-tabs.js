@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { Alert, Col, Form, Row, Tabs } from 'antd';
+import { Alert, Col, Form, Row, Tabs, Image } from 'antd';
 import Overview from './overview';
 import GroomerProfilePage from '../GroomerProfile/GroomerProfilePage';
 import RenderFormGR from '../ProfileFormGR/RenderFormGR';
@@ -10,11 +10,9 @@ import FileUpload from '../../common/FileUpload';
 import { GroomersContext } from '../../../state/contexts/GroomersContext';
 
 const { TabPane } = Tabs;
-
 const GroomerTab = () => {
   const { resultInfo } = useContext(FormContext);
   const { groomerInfo } = useContext(GroomersContext);
-
   const [mode] = useState('left');
 
   return (
@@ -55,6 +53,9 @@ const GroomerTab = () => {
             <FileUpload
               uploadUrl={`groomers/license-upload/${groomerInfo.user_id}`}
             />
+          </Row>
+          <Row justify={'center'}>
+            <Image width={200} src={groomerInfo.license_image_url} />
           </Row>
 
           <Row justify={'center'} className={'alert-row'}>
