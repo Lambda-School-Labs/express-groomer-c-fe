@@ -1,20 +1,11 @@
 import React, { useContext } from 'react';
-import { APIContext } from '../../../state/contexts/APIContext';
 import { GroomersContext } from '../../../state/contexts/GroomersContext';
 import { Card, Row } from 'antd';
 
 // THIS FEATURE NEEDS TO BE CONNECTED TO THE FAV-GROOMERS BACKEND.
 
 function RenderFavGroomer() {
-  const { getGroomerByID } = useContext(APIContext);
   const { groomer } = useContext(GroomersContext);
-
-  const groomerTest = () => {
-    console.log('Running Groomer Test');
-    getGroomerByID('00ulthapbErVUwVJy4x6');
-    console.log(groomer, 'Groomer');
-  };
-  groomerTest();
 
   return (
     <div>

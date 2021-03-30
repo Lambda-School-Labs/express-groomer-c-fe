@@ -1,0 +1,28 @@
+.button-container {
+    outline: 1px solid red;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: .75rem 0;
+}
+
+.appt-button {
+    font-size: .75rem;
+    height: 26px;
+    width: 160px;
+    margin-top: 5px;
+    color: white;
+    background: dodgerblue;
+    border: none;
+}
+
+.appt-button:hover {
+    background: #40a9ff;
+    transition: .5s;
+    cursor: pointer;
+}
+
+.appt-button:focus {
+    border: none;
+    outline: none;
+}

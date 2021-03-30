@@ -1,4 +1,7 @@
 import React, { useContext, useState } from 'react';
+import Appointments from '../Appointments/Appointments';
+import FileUpload from '../../common/FileUpload';
+// import GCal from '../Appointments/getCalendarEvents';
 import { Alert, Col, Form, Row, Tabs, Image } from 'antd';
 import Overview from './overview';
 import GroomerProfilePage from '../GroomerProfile/GroomerProfilePage';
@@ -6,7 +9,6 @@ import RenderFormGR from '../ProfileFormGR/RenderFormGR';
 import './groomer-dash.scss';
 // context imports
 import { FormContext } from '../../../state/contexts/FormContext';
-import FileUpload from '../../common/FileUpload';
 import { GroomersContext } from '../../../state/contexts/GroomersContext';
 
 const { TabPane } = Tabs;
@@ -89,7 +91,8 @@ const GroomerTab = () => {
           }
           key="3"
         >
-          Appointments
+          {/* <GCal /> */}
+          <Appointments />
         </TabPane>
       </Tabs>
     </div>
