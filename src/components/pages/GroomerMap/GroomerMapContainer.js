@@ -59,9 +59,10 @@ const GroomerMap = () => {
             onViewportChange={nextViewport => setViewport(nextViewport)}
             mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_TOKEN}
             mapStyle={process.env.REACT_APP_MAPBOX_STYLE}
-            onViewportChange={viewport => {
-              setViewport(viewport);
-            }}
+            // This came from the previous team. Unsure what its for, but its not affecting the map rendering.
+            // onViewportChange={viewport => {
+            //   setViewport(viewport);
+            // }}
           >
             <GeolocateControl
               positionOptions={{ enableHighAccuracy: true }}
