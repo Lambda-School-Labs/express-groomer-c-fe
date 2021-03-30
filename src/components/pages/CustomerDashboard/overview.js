@@ -1,5 +1,6 @@
 import React from 'react';
 import MyPets from './MyPets';
+import FavoriteGroomers from './FavoriteGroomers';
 import './overview.scss';
 
 export default function Overview() {
@@ -14,8 +15,9 @@ export default function Overview() {
         <MyPets />
       </div>
 
-      <div id="Favorite-Groomers">
+      <div id="fav-Groomers">
         <h1>Favorite Groomers</h1>
+        <FavoriteGroomers />
       </div>
     </div>
   );
