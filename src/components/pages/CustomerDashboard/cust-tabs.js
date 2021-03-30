@@ -5,6 +5,7 @@ import CustomerProfilePage from '../CustomerProfile/CustProContainer';
 import { ProfileFormPO } from '../ProfileFormPO';
 import { PetForm } from '../PetForm';
 import { RenderPetProfile } from '../PetProfile';
+import RenderFavGroomer from './RenderFavGroomer';
 // context imports
 import { FormContext } from '../../../state/contexts/FormContext';
 // import FileUpload from '../../common/FileUpload';
@@ -28,11 +29,16 @@ const CustTab = () => {
   // const { custInfo } = useContext(CustomersContext);
   const { getCustomerByID } = useContext(APIContext);
   const { getPet } = useContext(APIContext);
+  const { getGroomerByID } = useContext(APIContext);
+
+  // const {getGroomerByID} = useContext(APIContext);
   // const { pets } = useContext(PetsContext); // testing that context is updated before pets are rendered in RenderPetProfile
 
   useEffect(() => {
     getCustomerByID(authState);
     getPet(authState);
+    getGroomerByID('00ulthapbErVUwVJy4x6');
+
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -111,12 +117,12 @@ const CustTab = () => {
         <TabPane
           tab={
             <span>
-              <i className="fas fa-paw"></i> Search Groomers
+              <i className="fas fa-paw"></i> Saved Groomers
             </span>
           }
           key="4"
         >
-          Search Groomers
+          <RenderFavGroomer />
         </TabPane>
       </Tabs>
     </div>
