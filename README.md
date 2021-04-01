@@ -64,26 +64,28 @@ This part of the roadmap includes several 'features'
 *While the user profile is complete, please review and implement any changes you see fit.  As a user, I want a simplistic profile, so that I can see my appointments, pet profile, and have easy access to edit in one place. Also the ability to upload vaccines and link.*
 
 * **Overview:** Features includeded in portion of the product roadmap:
-    1. The customer dashboard with tabs has been implemented and has great potential to be fleshed out.  The actual customer information that can be added/edited by a pet owner is limited. Currently, tabs include:
-        * Overview (Upcoming Appointments, My Pets, Favorite Groomers)
-        * My Info (User profile & update ability)
-        * My Pets (Customer's pet profiles)
-        * Appointments
-        * Saved Groomers
-    2. __My Info__ displays the customer's profile and includes a button with the ability to update the customer's information. The profile picture currently uses an Avatar component from Ant Design as a placeholder and needs to be connected with the back end and given the ability to add a profile picture.
-    3. __My Pets__ displays the customer's pets profiles. If the customer has one pet, only one will display. If there are more than one, they will display one after another.
-        * This component includes the ability to add a new pet via the __Add Pet__ button.
-        * Clicking on __Add Pet Image__ allows a pet's pofile picture to be uploaded. This function can be used as the basis for completing the function for the pet owner's profile picture as well as the groomer's profile picture.
-        * The bottom of each pet's profile includes a component which allows a __vaccination image__ to be uploaded.
-    4. Appointments need to be pulled and displayed but that has not yet been attempted.
+
+    The __customer dashboard__ with tabs has been implemented and has great potential to be fleshed out. The actual customer information that can be added/edited by a pet owner is limited. Currently, tabs include:
+
+1. __Overview__
+    * __Upcoming Appointments__:
+    * __My Pets__: shows the name and profile picture of the customer's pets
+    * __Favorite Groomers__: hardcoded as "HC Groomer"
+2. __My Info__ displays the customer's profile and includes a button with the ability to update profile information. The profile picture currently uses an Avatar component from Ant Design as a placeholder and needs to be connected with the back end and given the ability to add a profile picture.
+3. __My Pets__ displays the customer's pet profiles. If the customer has one pet, only one will display. If there are more than one, they will display one after another.
+    * This component includes the ability to add a new pet via the __Add Pet__ button.
+    * Clicking on __Add Pet Image__ allows a pet's pofile picture to be uploaded.
+    * The bottom of each pet's profile includes a component which allows a __vaccination image__ to be uploaded.
+4. __Appointments__ need to be pulled and displayed but that has not yet been attempted.
+5. __Saved Groomers__: the card is hardcoded using "getGroomerByID" to import the information
 
 * **Future Features/Potential:**  
 
-    `Pet display component is a priority to be included in a dashboard tab.  Also brief information on customers pets could be shown on dashboard overview.`
-
-    `Finishing the upload feature in order to upload and display pet photos and vaccine records is also a priority.`
+    `The customer profile needs to have the ability to upload a profile picture added. The component used to upload pet profile pictures can be used as a basis to complete this task.`
 
     `Ideally the above would lead to the necessary information on a pet and customer being shared with a Groomer once an appointment was made and confirmed, possibly through SendGrid and/or Twilio integration.`
+
+    `The dashboard, like the rest of the application, has not been optimized for responsiveness. This needs to be corrected. The Overview sections (Upcoming Appointments, My Pets, Favorite Groomers) are not expanding to accommodate their contents and need to shrink/grow accordingly.`
 
 <br>
 
@@ -92,13 +94,13 @@ This part of the roadmap includes several 'features'
 *Using the mapbox API, provide a way for users to search within an area.  The user should be able to enter an address, provide a search radius, and the output will be a list of groomers based on the criteria entered.  The user should also be able to pin the groomers or save for later.  In the groomer profile, there needs to be a component to upload license and add license number.*
 
 * **Overview:** In reverse order ...
-    1. The groomer ability to upload a license through finishing the upload feature is partially addressed in the first "Groomer Search".  The simple addition of a field in the Groomer form for a licence number needs to be added. There are already a columns in the groomer table in the database for both 'license_number' and 'license_image_url'.
-    2. There is a tab in the Customer Dashboard for saved groomers, however this feature has in no way been implemented yet.
+    1. The groomer ability to upload a license in their profile has been completed. It might need to be styled or positioned differently as the application grows. The simple addition of a field in the Groomer form for a licence number needs to be added. There is already a column in the groomer table in the database for both a 'license_number'.
+    2. There is a tab in the Customer Dashboard for saved groomers. Its currently rendering data for Muddy Paws. The cust-tabs component has that groomer's user_id hard-coded for testing/demonstration purposes. The RenderFavGroomer component needs to be updated to map through a user's favorite groomers and render them all. In order for this to work, a component will need to be built into the groomer search so that when a groomer's profile is pulled up, that groomer can be favorited.
     3.  The mapbox API has been integrated. Currently the map will display a groomer's location with an info popup and there is a button to zoom to the user's location.  But search by radius has NOT been implemented.  Currently [react-map-gl](https://visgl.github.io/react-map-gl/) is the component integrating mapbox.  There is a related library [react-map-gl-geocoder](https://www.npmjs.com/package/react-map-gl-geocoder) which would be first place to look for an implementation of search by radius.  
 
 * **Future Features/Potential:**
 
-    `Finish upload feature and add upload component for Groomer to upload license image. Add field to groomer info form to input license number.  Add place to display license/other credential and license number.`
+    `Add field to groomer info form to input license number.  Add place to display license number.`
 
     `Add search by radius to current mapbox integration, perhaps through react-map-gl-geocoder: https://www.npmjs.com/package/react-map-gl-geocoder.`
 
