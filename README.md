@@ -30,15 +30,15 @@ The initial descriptions beneath each *feature* below are the state of the appli
 
 ### **1. Search Groomer Database**
 
-*Groomers able to set up profile.  Based on the groomer profile, users will be able to search groomers.  While teams did work on this, this will need to be reviewed and changed at your discretion.*
+*Groomers are able to set up profiles.  Based on the groomer profile, users will be able to search groomers.  While teams did work on this, this will need to be reviewed and changed at your discretion.*
 
 * **Overview:**
 This part of the roadmap includes several 'features'
     1. Internal Groomer profile where the Groomer can add/edit information.
-    2. Customer facing Groomer profile, which will pull from the database the information the groomer has entered.
+    2. Customer-facing Groomer profile, which will pull from the database the information the groomer has entered.
     3. Actual search bar which brings up relevant cards.  From these cards the customer may choose to view the full customer facing Groomer Profile.
 
-* **Further Notes:** This team built on the original team's basic rendering of the all of the above features, and made improvements:
+* **Further Notes:** LabsPT14 built on the original team's basic rendering of the all of the above features, and made improvements:
     * A groomer dashboard feature with tabs (using an Ant Design component) was implemented.  The Groomer Profile takes up one of the tabs.
         - Three forms may be used to add general information, Groomer hours, and a list of services and prices.
         - Services are populated in a drop down menu from the back end to prevent duplications, user error, etc. The groomer can choose what price they will charge for a service if they add it to their profile. If a groomer has specialized services they want to add they are free to describe them in a general about section. The dropdown services menu is currently populated via a seeded table on the backend.
@@ -46,12 +46,12 @@ This part of the roadmap includes several 'features'
 
 * **Future Features/Potential:**
     - The groomer dashboard has great potential to be fleshed out and the initial view/tab used to display upcoming information such as appointments.
-    - The backend has a file upload to AWS s3 integrated and some routes for uploading images have been created.  An upload component has been created on the front end but it is not all connected properly yet as should be noted in the code.
+    - The backend has a file upload to AWS S3 integrated and some routes for uploading images have been created.  An upload component has been created on the front end but it is not all connected properly yet as should be noted in the code.
     - The Groomer searchbar only allows searchs by city at the moment and searching by business name, service, zipcode, state etc. would be great improvements.
 
         **Summary**
    
-        `Finishing the upload capability and integrating a profile image for the groomer should be on the list of features to be added.  Also the feature for a groomer to upload a licence/other credentials should be finished`
+        `Finishing the upload capability and integrating a profile image for the groomer should be on the list of features to be added.  The feature for a groomer to upload a licence/other credentials has been completed by LabsPT16. Further teams can style and position it as desired.`
 
         `UI can be improved.`
 
@@ -113,15 +113,26 @@ This part of the roadmap includes several 'features'
 *Groomers should be able to manage the request from users, schedule appointments, and have a way to manage their appointments.  Possible KanBan style.  This would be MVP.  Possible API integration for appoint scheduling/confirmation.*
 
 * **Overview:** 
-   - Calendly has been integrated through the react-calendly library.  Currently the groomer must create a personal Calendly account and provide the link.  
-   - Temporary emails were used to create Calendly accounts for the current four groomers and new ones may need to be made. Perhaps through the 'emails' provided with each of the eight users (through Okta) provided in labs.
-   - The integration is visible on the customer facing groomer profile page where there is a 'make appointment' button and then Calendly comes up and a type of service, date, and time can be selected.
+
+    __PREVIOUS STATUS__
+   - *Calendly has been integrated through the react-calendly library.  Currently the groomer must create a personal Calendly account and provide the link.* 
+   - *Temporary emails were used to create Calendly accounts for the current four groomers and new ones may need to be made. Perhaps through the 'emails' provided with each of the eight users (through Okta) provided in labs.*
+   - *The integration is visible on the customer facing groomer profile page where there is a 'make appointment' button and then Calendly comes up and a type of service, date, and time can be selected.*
+
+   __CURRENT STATUS__
+   - __Google Calendar__ has replaced Calendly. Components have been built that can add events to a groomer's calendar and retrieve those events. This feature is currently linked to a single groomer's account called *expressgroomer001@gmail.com*. Login information for that account has been provided to the Labs group.
+   - Back end built an endpoint to communicate with Google API (gapi). Front end is currently not using that endpoint, as its making its own axios calls to gapi. The next team has the option to either use the front end implementation or connect it to the back end endpoint.
+   - A Calendar component from Ant Design renders in the groomer's dashboard. Its currently displaying hard-coded data, as explained in the Appointments component. It needs to be updated to render data returned from gapi.
 
 * **Future Features/Thoughts:**
 
     `Accessing the Calendly for the groomer is currently only available on the customer facing groomer profile page. A close look at the available Calendly integration options looks like it can be further embedded into the application and perhaps appointment data can be pulled to display within the Groomer Dashboard. If Calendly is not viable, other scheduling options may need to be considered.`
 
     `Integrating SendGrid and/or Twilio to provide confirmation of appointments and reminders would be the next feature to implement.  Also, upon confirmation of an appointment, perhaps an email could provide the Groomer with the customer's contact information and pet information.`
+
+    `Back end built a Twilio endpoint, but its not currently connected to the front end. It can be integrated into the Appointments sections of the application.`
+
+    `Don't feel pressure to stay with the current Appointments implementation if another solution is easier to build out. A scheduler library might be easier to implement for communication with both the groomer and customer dashboards. Calendly might also end up being the right solution, as could a custom solution. Focus on the data that needs to be communicated back and forth and determine the appropriate solution.`
 
 <br>
 
