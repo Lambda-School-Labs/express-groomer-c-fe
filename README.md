@@ -1,6 +1,6 @@
 # Express Groomer
 
-Express groomer connects groomers and clients.  This allows for groomers to meet at the clients residence or allows the clients to meet at the groomers.  Clients will have the ability to safely schedule an appointment and groomers can grow their business.
+Express Groomer connects groomers and clients.  This allows for groomers to meet at the client's residence or allows the clients to meet at the groomer's.  Clients will have the ability to safely schedule an appointment and groomers can grow their business.
 
 You can find the [`Deployed Project`](https://b.expressgroomer.dev) located [here](https://b.expressgroomer.dev).
 
@@ -26,7 +26,7 @@ The original **[Instructional ReadMe](INITIAL_README.md)** for this repository c
 
 ## **Features**
 
-The initial descriptions beneath each *feature* below are the state of the application when LabsPT14 recieved the repos. The descriptionss and titles are all extracted from the product road map.
+The initial descriptions beneath each *feature* below are the state of the application when LabsPT14 recieved the repos. The descriptions and titles are all extracted from the product road map. LabsPT16 has since updated the descriptions and features lists to reflect recent changes and status.
 
 ### **1. Search Groomer Database**
 
@@ -61,12 +61,21 @@ This part of the roadmap includes several 'features'
 
 ### **2. User Profile/ Pet Profile**
 
-*While the user profile is complete, please review and implement any changes you see fit.  As a user, I want to a simplistic profile, so that I can see my appointments, pet profile, and easy access to edit in one place. Also the ability to upload vaccines and link.*
+*While the user profile is complete, please review and implement any changes you see fit.  As a user, I want a simplistic profile, so that I can see my appointments, pet profile, and have easy access to edit in one place. Also the ability to upload vaccines and link.*
 
 * **Overview:** Features includeded in portion of the product roadmap:
-    1. The customer dashboard with tabs has been implemented and has great potential to be fleshed out.  The actual customer information that can be added/edited by a pet owner is limited.
-    2. An add pet form has been created and a button is in the pets tab.  It works for creating a pet, however the team was unable to complete the Pet Display components.  So no pet information is currently displayed on the front end. Similarly the upload of a pet photo and current vaccines has not been connected, although the capability to upload single files now exists on the backend.
-    3. Appointments need to be pulled and displayed but that has not yet been attempted.
+    1. The customer dashboard with tabs has been implemented and has great potential to be fleshed out.  The actual customer information that can be added/edited by a pet owner is limited. Currently, tabs include:
+        * Overview (Upcoming Appointments, My Pets, Favorite Groomers)
+        * My Info (User profile & update ability)
+        * My Pets (Customer's pet profiles)
+        * Appointments
+        * Saved Groomers
+    2. __My Info__ displays the customer's profile and includes a button with the ability to update the customer's information. The profile picture currently uses an Avatar component from Ant Design as a placeholder and needs to be connected with the back end and given the ability to add a profile picture.
+    3. __My Pets__ displays the customer's pets profiles. If the customer has one pet, only one will display. If there are more than one, they will display one after another.
+        * This component includes the ability to add a new pet via the __Add Pet__ button.
+        * Clicking on __Add Pet Image__ allows a pet's pofile picture to be uploaded. This function can be used as the basis for completing the function for the pet owner's profile picture as well as the groomer's profile picture.
+        * The bottom of each pet's profile includes a component which allows a __vaccination image__ to be uploaded.
+    4. Appointments need to be pulled and displayed but that has not yet been attempted.
 
 * **Future Features/Potential:**  
 
