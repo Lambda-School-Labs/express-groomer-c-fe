@@ -87,6 +87,8 @@ This part of the roadmap includes several 'features'
 
     `The dashboard, like the rest of the application, has not been optimized for responsiveness. This needs to be corrected. The Overview sections (Upcoming Appointments, My Pets, Favorite Groomers) are not expanding to accommodate their contents and need to shrink/grow accordingly.`
 
+    `The database tables that would be hooked up to the Favorite Groomers front end need to be connected. There exists an initial draft but it needs to be sketched out more.`
+
 <br>
 
 ### **3. Enhanced Groomer Search**
